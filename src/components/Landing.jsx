@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import BackToUp from '@uiw/react-back-to-top';
 import CodeEditorWindow from "./CodeEditorWindow";
 import axios from "axios";
 import { classnames } from "../utils/general";
@@ -16,6 +17,7 @@ import OutputDetails from "./OutputDetails";
 import ThemeDropdown from "./ThemeDropdown";
 import LanguagesDropdown from "./LanguagesDropdown";
 import { NavbarComponent } from "./NavbarComponent";
+import FontSizeDropdown from "./FontSizeDropdown";
 
 const javascriptDefault = `console.log("Hello World")
 `;
@@ -27,7 +29,7 @@ const Landing = () => {
   const [processing, setProcessing] = useState(null);
   const [theme, setTheme] = useState("cobalt");
   const [language, setLanguage] = useState(languageOptions[0]);
-
+  const [fontSize, setFontSize] = useState(null);
   const enterPress = useKeyPress("Enter");
   const ctrlPress = useKeyPress("Control");
 
@@ -176,9 +178,15 @@ const Landing = () => {
     });
   };
 
+  const handleFontSizeChange = (selectedFontSize) => {
+    // Implement your font size change logic
+    setFontSize(parseInt(selectedFontSize.value))
+  };
+
+
   return (
     <div>
-      <NavbarComponent/>
+      <NavbarComponent />
       <div>
         <ToastContainer
           position="top-right"
@@ -200,6 +208,9 @@ const Landing = () => {
           <div className="px-4 py-2">
             <ThemeDropdown handleThemeChange={handleThemeChange} theme={theme} />
           </div>
+          <div className="px-4 py-2">
+            <FontSizeDropdown handleFontSizeChange={handleFontSizeChange} fontSize={fontSize} />
+          </div>
         </div>
         <div className="flex flex-col lg:flex-row space-x-4 items-start px-4 py-4">
           <div className="flex flex-col w-full h-full justify-start items-end">
@@ -208,6 +219,7 @@ const Landing = () => {
               onChange={onChange}
               language={language?.value}
               theme={theme.value}
+              fontSize={fontSize}
             />
           </div>
 
@@ -232,6 +244,7 @@ const Landing = () => {
             {outputDetails && <OutputDetails outputDetails={outputDetails} />}
           </div>
         </div>
+        <BackToUp />
         <Footer />
       </div>
     </div>
