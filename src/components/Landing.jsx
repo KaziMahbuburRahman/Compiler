@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import BackToUp from '@uiw/react-back-to-top';
+
 import CodeEditorWindow from "./CodeEditorWindow";
 import axios from "axios";
 import { classnames } from "../utils/general";
@@ -186,7 +186,7 @@ const Landing = () => {
 
   return (
     <div>
-      <NavbarComponent />
+  
       <div>
         <ToastContainer
           position="top-right"
@@ -201,7 +201,7 @@ const Landing = () => {
         />
 
         <div className="h-4 w-full bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500"></div>
-        <div className="flex flex-row">
+        <div className="flex flex-col lg:flex-row sm:flex-row">
           <div className="px-4 py-2">
             <LanguagesDropdown onSelectChange={onSelectChange} />
           </div>
@@ -223,7 +223,7 @@ const Landing = () => {
             />
           </div>
 
-          <div className="right-container  flex pl-20 lg:p-0 lg:w-[35%] flex-shrink-0 w-[85%] flex-col">
+          <div className="right-container flex sm:pl-20 pr-5 lg:p-0 lg:w-[35%] flex-shrink-0 sm:w-[85%] w-[100%] flex-col">
             <OutputWindow outputDetails={outputDetails} />
             <div className="flex flex-col items-end">
               <CustomInput
@@ -244,8 +244,8 @@ const Landing = () => {
             {outputDetails && <OutputDetails outputDetails={outputDetails} />}
           </div>
         </div>
-        <BackToUp />
-        <Footer />
+        
+
       </div>
     </div>
   );
