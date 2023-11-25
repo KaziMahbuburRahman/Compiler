@@ -75,14 +75,14 @@ input[type="number"] {
 }
 
 ::-webkit-scrollbar {
-  width: 0.2rem;
+  width: 0.4rem;
   border-radius: 0.6rem;
   background-color: #fff;
 }
 
 ::-webkit-scrollbar-thumb {
   border-radius: 0.6rem;
-  background-color: #21222c;
+  background: linear-gradient(red, yellow)
 }
 
 ::-webkit-scrollbar-thumb:hover {

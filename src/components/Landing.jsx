@@ -186,7 +186,7 @@ const Landing = () => {
 
   return (
     <div>
-  
+
       <div>
         <ToastContainer
           position="top-right"
@@ -201,7 +201,7 @@ const Landing = () => {
         />
 
         <div className="h-4 w-full bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500"></div>
-        <div className="flex flex-col lg:flex-row sm:flex-row">
+        <div className="flex flex-col justify-self-start items-center lg:flex-row sm:flex-row">
           <div className="px-4 py-2">
             <LanguagesDropdown onSelectChange={onSelectChange} />
           </div>
@@ -212,7 +212,7 @@ const Landing = () => {
             <FontSizeDropdown handleFontSizeChange={handleFontSizeChange} fontSize={fontSize} />
           </div>
         </div>
-        <div className="flex flex-col lg:flex-row space-x-4 items-start px-4 py-4">
+        <div className="flex flex-col lg:flex-row lg:space-x-4 items-start px-4 py-4">
           <div className="flex flex-col w-full h-full justify-start items-end">
             <CodeEditorWindow
               code={code}
@@ -223,7 +223,7 @@ const Landing = () => {
             />
           </div>
 
-          <div className="right-container flex sm:pl-20 pr-5 lg:p-0 lg:w-[35%] flex-shrink-0 sm:w-[85%] w-[100%] flex-col">
+          <div className="right-container flex sm:pl-20 sm:pr-5 lg:p-0 lg:w-[35%] flex-shrink-0 sm:w-[85%] w-[100%] flex-col">
             <OutputWindow outputDetails={outputDetails} />
             <div className="flex flex-col items-end">
               <CustomInput
@@ -244,7 +244,7 @@ const Landing = () => {
             {outputDetails && <OutputDetails outputDetails={outputDetails} />}
           </div>
         </div>
-        
+
 
       </div>
     </div>

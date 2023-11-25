@@ -1,14 +1,17 @@
 
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 // import Logo from '../../assets/logo.png'
 // import { RiMenu4Fill } from 'react-icons/ri'
 
 export const NavbarComponent = () => {
+  // Added state to track whether the menu is open or closed
+  const [menuOpen, setMenuOpen] = useState(false);
+
   const NavMenus = (
     <>
       <li className='border-none lg:mr-6 py-2 lg:py-0 lg:hidden'>
-        <NavLink to="/bteb" className={({ isActive }) =>
+        <NavLink to="/" className={({ isActive }) =>
           isActive ? "text-white btn btn-primary" : "btn glass text-black"
         }>Home</NavLink>
       </li>
@@ -38,19 +41,30 @@ export const NavbarComponent = () => {
   return (
     <div className="navbar glass sticky top-0 z-50 md:px-16 lg:px-32">
       <div className="navbar-start">
+
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
             {/* menu icon */}
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
+            <label className={`swap swap-rotate `}>
+
+              {/* <!-- this hidden checkbox controls the state --> */}
+              <input type="checkbox" onClick={() => setMenuOpen(!menuOpen)} />
+
+              {/* <!-- hamburger icon --> */}
+              <svg className="swap-off fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512"><path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z" /></svg>
+
+              {/* <!-- close icon --> */}
+              <svg className="swap-on fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512"><polygon points="400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49" /></svg>
+
+            </label>
 
           </label>
-          <ul tabIndex={0} className="menu menu-compact dropdown-content mt-4 p-2 shadow bg-base-100 rounded-box w-60">
+          <ul tabIndex={0} className={`${menuOpen ? 'block' : 'hidden'} menu menu-compact dropdown-content mt-4 p-2 shadow bg-base-100 rounded-box w-60`}>
             {NavMenus}
           </ul>
         </div>
-        <Link to="/bteb" className="btn btn-ghost normal-case text-xl flex justify-center items-center gap-2"> <img alt="" className='w-8 md:w-10' /> TechHelpBD <strong className="text-primary">|</strong> BTEB</Link>
+        {/* <img alt="" className='w-8 md:w-10' /> */}
+        <Link to="/bteb" className="btn btn-ghost normal-case text-xl flex justify-center items-center gap-2"> TechHelpBD <strong className="text-primary">|</strong> Compiler</Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
