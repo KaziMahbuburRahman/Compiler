@@ -7,6 +7,7 @@ import {
 import Root from './Layouts/Root.jsx';
 import NotFound from './components/NotFound/NotFound.jsx';
 
+
 const router = createBrowserRouter([
   {
     path: "/",

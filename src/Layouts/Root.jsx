@@ -4,6 +4,7 @@ import Landing from '../components/Landing'
 import Footer from '../components/Footer'
 import BackToUp from '@uiw/react-back-to-top';
 
+
 const Root = () => {
   return (
     <div> <>

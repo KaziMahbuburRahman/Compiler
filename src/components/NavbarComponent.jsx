@@ -1,17 +1,21 @@
 
 import React, { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import ThemeChanger from '../shared/ThemeChanger/ThemeChanger';
 // import Logo from '../../assets/logo.png'
 // import { RiMenu4Fill } from 'react-icons/ri'
 
 export const NavbarComponent = () => {
   // Added state to track whether the menu is open or closed
   const [menuOpen, setMenuOpen] = useState(false);
-
+  const [dtheme, setdTheme] = useState('');
+    const handleScrollToTop = () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
   const NavMenus = (
     <>
       <li className='border-none lg:mr-6 py-2 lg:py-0 lg:hidden'>
-        <NavLink to="/" className={({ isActive }) =>
+        <NavLink onClick={handleScrollToTop} to="/" className={({ isActive }) =>
           isActive ? "text-white btn btn-primary" : "btn glass text-black"
         }>Home</NavLink>
       </li>
@@ -64,15 +68,15 @@ export const NavbarComponent = () => {
           </ul>
         </div>
         {/* <img alt="" className='w-8 md:w-10' /> */}
-        <Link to="/" className="btn btn-ghost normal-case text-xl flex justify-center items-center gap-2"> TechHelpBD <strong className="text-primary">|</strong> Compiler</Link>
+        <Link to="/" onClick={handleScrollToTop} className="btn btn-ghost normal-case text-lg flex justify-center items-center gap-2"> TechHelpBD <strong className="text-primary">|</strong> Compiler</Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           {NavMenus}
         </ul>
       </div>
-      <div className="navbar-end hidden md:flex">
-        <Link to="/bteb/developers" className="btn glass text-black">Developers</Link>
+      <div className="navbar-end  md:flex">
+      <ThemeChanger dtheme={dtheme} setdTheme={setdTheme} />
       </div>
     </div>
   )

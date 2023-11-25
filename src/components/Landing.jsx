@@ -18,6 +18,7 @@ import ThemeDropdown from "./ThemeDropdown";
 import LanguagesDropdown from "./LanguagesDropdown";
 import { NavbarComponent } from "./NavbarComponent";
 import FontSizeDropdown from "./FontSizeDropdown";
+import ThemeChanger from "../shared/ThemeChanger/ThemeChanger";
 
 const javascriptDefault = `console.log("Hello World")
 `;
@@ -32,6 +33,8 @@ const Landing = () => {
   const [fontSize, setFontSize] = useState(null);
   const enterPress = useKeyPress("Enter");
   const ctrlPress = useKeyPress("Control");
+
+
 
   const onSelectChange = (sl) => {
     console.log("selected Option...", sl);
@@ -211,6 +214,7 @@ const Landing = () => {
           <div className="px-4 py-2">
             <FontSizeDropdown handleFontSizeChange={handleFontSizeChange} fontSize={fontSize} />
           </div>
+
         </div>
         <div className="flex flex-col lg:flex-row lg:space-x-4 items-start px-4 py-4">
           <div className="flex flex-col w-full h-full justify-start items-end">
