@@ -7,13 +7,13 @@ import BackToUp from '@uiw/react-back-to-top';
 const Root = () => {
   return (
     <div> <>
-    <NavbarComponent />
-    <Landing />
-    <BackToUp />
-    <Footer />
-</>
+      <NavbarComponent />
+      <Landing />
+      <BackToUp>Top</BackToUp>
+      <Footer />
+    </>
     </div>
-    
+
   )
 }
 

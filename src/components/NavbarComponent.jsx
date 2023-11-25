@@ -64,7 +64,7 @@ export const NavbarComponent = () => {
           </ul>
         </div>
         {/* <img alt="" className='w-8 md:w-10' /> */}
-        <Link to="/bteb" className="btn btn-ghost normal-case text-xl flex justify-center items-center gap-2"> TechHelpBD <strong className="text-primary">|</strong> Compiler</Link>
+        <Link to="/" className="btn btn-ghost normal-case text-xl flex justify-center items-center gap-2"> TechHelpBD <strong className="text-primary">|</strong> Compiler</Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
