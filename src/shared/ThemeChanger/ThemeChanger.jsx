@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { themeOptions } from "./data";
 import styles from "./ThemeChanger.module.css";
+import SettingsIcon from '../../assets/svg/SettingsIcon'
 
 export default function ThemeChanger({ dtheme, setdTheme }) {
     const handleThemeChange = (e) => {
@@ -18,13 +19,18 @@ export default function ThemeChanger({ dtheme, setdTheme }) {
                 htmlFor="themeChanger"
                 className="btn btn-sm btn-primary rounded-full h-8 w-8 right-1 top-1/3"
             >
-                <i className={`bx bx-cog text-lg text-white ${styles.themeBtn}`}></i>
+                
+                <span className={`${styles.themeBtn} text-lg text-white`}>
+                    <SettingsIcon />
+                </span>
+
             </label>
 
             <input type="checkbox" id="themeChanger" className="modal-toggle" />
             <div className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box relative">
                     <h3 className="text-lg font-bold flex items-center gap-1">
+
                         <i className={`bx bx-cog text-lg ${styles.themeBtn}`}></i>Choose
                         your theme from here
                     </h3>
