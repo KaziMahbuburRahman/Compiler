@@ -17,7 +17,7 @@ export default function ThemeChanger({ dtheme, setdTheme }) {
         <div>
             <label
                 htmlFor="themeChanger"
-                className="btn btn-sm btn-primary rounded-full h-8 w-8 right-1 top-1/3"
+                className="btn btn-sm btn-primary rounded-full h-8 w-8"
             >
                 
                 <span className={`${styles.themeBtn} text-lg text-white`}>
