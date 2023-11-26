@@ -14,11 +14,11 @@ const Root = () => {
   const closeModal = () => {
     setModalOpen(false);
   }
-  const [dtheme, setdTheme] = useState('');
+  const [daisyTheme, setDaisyTheme] = useState('');
   return (
     <div> <>
       <NavbarComponent openModal={openModal} />
-      <ThemeChanger isModalOpen={isModalOpen} closeModal={closeModal} dtheme={dtheme} setdTheme={setdTheme} />
+      <ThemeChanger isModalOpen={isModalOpen} closeModal={closeModal} daisyTheme={daisyTheme} setDaisyTheme={setDaisyTheme} />
       <Landing />
       <BackToUp>Top</BackToUp>
       <Footer />
