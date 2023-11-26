@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import ThemeChanger from '../shared/ThemeChanger/ThemeChanger';
+
 // import Logo from '../../assets/logo.png'
 // import { RiMenu4Fill } from 'react-icons/ri'
 
@@ -9,9 +10,9 @@ export const NavbarComponent = () => {
   // Added state to track whether the menu is open or closed
   const [menuOpen, setMenuOpen] = useState(false);
   const [dtheme, setdTheme] = useState('');
-    const handleScrollToTop = () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
+  const handleScrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
   const NavMenus = (
     <>
       <li className='border-none lg:mr-6 py-2 lg:py-0 lg:hidden'>
@@ -76,7 +77,7 @@ export const NavbarComponent = () => {
         </ul>
       </div>
       <div className="navbar-end  md:flex">
-      <ThemeChanger dtheme={dtheme} setdTheme={setdTheme} />
+        <ThemeChanger dtheme={dtheme} setdTheme={setdTheme} />
       </div>
     </div>
   )
