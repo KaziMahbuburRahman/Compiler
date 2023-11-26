@@ -21,9 +21,13 @@ const CodeEditorWindow = ({ onChange, language, code, theme, fontSize }) => {
         theme={theme}
         options={{
           fontSize: fontSize, // Set your desired font size here
+          scrollbar: {
+            alwaysConsumeMouseWheel: false
+           }
         }}
         defaultValue="// some comment"
         onChange={handleEditorChange}
+   
       />
     </div>
   );
