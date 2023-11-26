@@ -7,7 +7,7 @@ import SettingsIcon from '../assets/svg/SettingsIcon'
 // import Logo from '../../assets/logo.png'
 // import { RiMenu4Fill } from 'react-icons/ri'
 
-export const NavbarComponent = () => {
+export const NavbarComponent = ({openModal}) => {
   // Added state to track whether the menu is open or closed
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -78,15 +78,15 @@ export const NavbarComponent = () => {
         </ul>
       </div>
       <div className="navbar-end  md:flex">
-      <label
-                htmlFor="themeChanger"
-                className="btn btn-sm btn-primary rounded-full h-8 w-8 right-1 top-1/3"
-            >
-                <span className={`animate-spin-slow text-lg text-white`}>
-                    <SettingsIcon />
-                </span>
+        <label onClick={openModal}
+          htmlFor="themeChanger"
+          className="btn btn-sm btn-primary rounded-full h-8 w-8 right-1 top-1/3"
+        >
+          <span className={`animate-spin-slow text-lg text-white`}>
+            <SettingsIcon />
+          </span>
 
-            </label>
+        </label>
       </div>
     </div>
   )

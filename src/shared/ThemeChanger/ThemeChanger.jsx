@@ -1,9 +1,9 @@
-import React, { useContext, useEffect } from "react";
+import{ useEffect } from "react";
 import { themeOptions } from "./data";
 import styles from "./ThemeChanger.module.css";
-import SettingsIcon from '../../assets/svg/SettingsIcon'
 
-export default function ThemeChanger({ dtheme, setdTheme }) {
+
+export default function ThemeChanger({ dtheme, setdTheme, isModalOpen, closeModal }) {
     const handleThemeChange = (e) => {
         setdTheme(e.target.value);
         window.localStorage.setItem("theme", e.target.value);
@@ -14,18 +14,9 @@ export default function ThemeChanger({ dtheme, setdTheme }) {
     }, [dtheme]);
 
     return (
-        <div>
-            <label
-                htmlFor="themeChanger"
-                className="btn btn-sm btn-primary rounded-full h-8 w-8"
-            >
-                
-                <span className={`${styles.themeBtn} text-lg text-white`}>
-                    <SettingsIcon />
-                </span>
-
-            </label>
-
+        <>
+        {
+            isModalOpen? <div>
             <input type="checkbox" id="themeChanger" className="modal-toggle" />
             <div className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box relative">
@@ -67,13 +58,15 @@ export default function ThemeChanger({ dtheme, setdTheme }) {
                         </p>
                     </div>
 
-                    <div className="modal-action">
+                    <div onClick={closeModal} className="modal-action">
                         <label htmlFor="themeChanger" className="btn btn-error text-white">
                             <i className="bx bx-x text-xl"></i> Close
                         </label>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> : null
+        }
+        </>
     );
 }
