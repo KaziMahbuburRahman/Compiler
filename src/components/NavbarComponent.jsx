@@ -82,7 +82,6 @@ export const NavbarComponent = () => {
                 htmlFor="themeChanger"
                 className="btn btn-sm btn-primary rounded-full h-8 w-8 right-1 top-1/3"
             >
-                
                 <span className={`animate-spin-slow text-lg text-white`}>
                     <SettingsIcon />
                 </span>
