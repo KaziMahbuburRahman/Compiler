@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import ThemeChanger from '../shared/ThemeChanger/ThemeChanger';
+import SettingsIcon from '../assets/svg/SettingsIcon'
 
 // import Logo from '../../assets/logo.png'
 // import { RiMenu4Fill } from 'react-icons/ri'
@@ -9,7 +10,7 @@ import ThemeChanger from '../shared/ThemeChanger/ThemeChanger';
 export const NavbarComponent = () => {
   // Added state to track whether the menu is open or closed
   const [menuOpen, setMenuOpen] = useState(false);
-  const [dtheme, setdTheme] = useState('');
+
   const handleScrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -77,7 +78,16 @@ export const NavbarComponent = () => {
         </ul>
       </div>
       <div className="navbar-end  md:flex">
-        <ThemeChanger dtheme={dtheme} setdTheme={setdTheme} />
+      <label
+                htmlFor="themeChanger"
+                className="btn btn-sm btn-primary rounded-full h-8 w-8 right-1 top-1/3"
+            >
+                
+                <span className={`animate-spin-slow text-lg text-white`}>
+                    <SettingsIcon />
+                </span>
+
+            </label>
       </div>
     </div>
   )
