@@ -7,6 +7,7 @@ import {
 import Root from './Layouts/Root.jsx';
 import NotFound from './components/NotFound/NotFound.jsx';
 import SavedCodes from './components/SavedCodes.jsx';
+import Contact from './components/Contact/Contact.jsx';
 
 
 const router = createBrowserRouter([
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
   {
     path: "/saved-codes",
     element: <SavedCodes />
+  },
+  {
+    path: "/contact",
+    element: <Contact />
   }
 ]);
 
