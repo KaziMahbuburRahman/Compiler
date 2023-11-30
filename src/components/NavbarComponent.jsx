@@ -7,7 +7,7 @@ import SettingsIcon from '../assets/svg/SettingsIcon'
 // import Logo from '../../assets/logo.png'
 // import { RiMenu4Fill } from 'react-icons/ri'
 
-export const NavbarComponent = ({openModal}) => {
+export const NavbarComponent = ({ openModal }) => {
   // Added state to track whether the menu is open or closed
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -32,9 +32,9 @@ export const NavbarComponent = ({openModal}) => {
         }>Group Result</NavLink>
       </li>
       <li className='py-2 lg:py-0'>
-        <NavLink to="/bteb/cgpa-calculator" className={({ isActive }) =>
+        <NavLink to="/saved-codes" className={({ isActive }) =>
           isActive ? "text-white btn btn-primary" : "btn glass text-black"
-        }>CGPA Calculator</NavLink>
+        }>Saved Codes</NavLink>
       </li>
       <li className='lg:hidden py-2 lg:py-0'>
         <NavLink to="/bteb/developers" className={({ isActive }) =>

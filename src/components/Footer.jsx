@@ -24,8 +24,8 @@ export default function Footer() {
           <Link to="/bteb/group-result" className="link-info text-white">
             Group Result
           </Link>
-          <Link to="/bteb/cgpa-calculator" className="link-info text-white">
-            CGPA Calculator
+          <Link to="/saved-codes" className="link-info text-white">
+            Saved Codes
           </Link>
         </div>
         <div>

@@ -30,11 +30,25 @@ const Landing = () => {
   const [processing, setProcessing] = useState(null);
   const [theme, setTheme] = useState("cobalt");
   const [language, setLanguage] = useState(languageOptions[0]);
+  const [title, setTitle] = useState("");
   const [fontSize, setFontSize] = useState(null);
   const enterPress = useKeyPress("Enter");
   const ctrlPress = useKeyPress("Control");
 
+  const handleSaveCode = () => {
+    const savedCodes = JSON.parse(localStorage.getItem("savedCodes")) || [];
 
+    const newCode = {
+      code,
+      title: title,
+      timestamp: new Date().toLocaleString(),
+      outputDetails: outputDetails, // add outputDetails property
+    };
+
+    savedCodes.push(newCode);
+    localStorage.setItem("savedCodes", JSON.stringify(savedCodes));
+    showSuccessToast("Code saved successfully!");
+  };
 
   const onSelectChange = (sl) => {
     console.log("selected Option...", sl);
@@ -216,6 +230,7 @@ const Landing = () => {
           </div>
 
         </div>
+
         <div className="flex flex-col lg:flex-row lg:space-x-4 items-start px-4 py-4">
           <div className="flex flex-col w-full h-full justify-start items-end">
             <CodeEditorWindow
@@ -228,6 +243,27 @@ const Landing = () => {
           </div>
 
           <div className="right-container flex sm:pl-20 sm:pr-5 lg:p-0 lg:w-[35%] flex-shrink-0 sm:w-[85%] w-[100%] flex-col">
+
+            {/* save button */}
+            <div className="py-1 w-full">
+              <input
+                className="w-[60%] border-gray-400 border-2 rounded-md p-2 placeholder-gray-500 shadow-md text-black bg-white mr-2 focus:outline-none focus:ring-2 focus:ring-purple-600"
+                type="text"
+                placeholder="Enter Title"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+              />
+              <button onClick={handleSaveCode} className={classnames(
+                "w-auto text-white bg-purple-600 border-2 border-purple-600 z-10 rounded-md shadow-md px-2 py-2 hover:bg-purple-700 transition duration-200",
+                "mt-2 ml-4", // adjust the margin values to match the other elements
+                !code ? "opacity-50 cursor-not-allowed" : ""
+              )}
+                disabled={!code}
+              >
+                Save Code
+              </button>
+            </div>
+
             <OutputWindow outputDetails={outputDetails} />
             <div className="flex flex-col items-end">
               <CustomInput
