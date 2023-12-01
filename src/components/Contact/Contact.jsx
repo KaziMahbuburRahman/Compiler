@@ -1,72 +1,81 @@
-import React from 'react'
+import { useRef } from 'react'
 import './Contact.css'
+import emailjs from '@emailjs/browser';
 const Contact = () => {
-  return (
-    <div>
-      <div className="bg-no-repeat bg-cover contact-container bg-black bg-blend-darken">
-        <div className="bg-img-overlay pt-12 pb-20">
-          <div className="text-center text-white py-12 space-y-2 ">
-            <h2 className='text-3xl lg:text-4xl font-bold font-mono '>Contact Our Team</h2>
-            <h3 className=''>Have any questions ? <br className='lg:hidden' />
-              We love to hear from you .</h3>
-          </div>
-          <div className="flex flex-col justify-center  lg:flex-row container mx-auto px-8 gap-6">
-            {/* onSubmit={handleSubmit(onSubmit)} */}
-            <form className="lg:w-1/2 space-y-2 p-5 bg-base-100 rounded-lg">
-              <div className='flex flex-col space-y-1 '>
-                <input
-                  type="text"
-                  placeholder='Enter your name'
-                  className='border rounded-lg py-2 text-lg pl-3 hover:border-primary duration-300'
 
-                />
-                <p className='text-[13px] text-red-500 pl-3'></p>
-              </div>
-              <div className='flex flex-col space-y-1 '>
-                <input
-                  type="email"
-                  placeholder='Enter your email'
-                  className='border rounded-lg py-2 text-lg pl-3 hover:border-primary duration-300'
+    const form = useRef(null);
+    const sendEmail = (e) => {
+        e.preventDefault();
+        emailjs.sendForm('service_w2rs66a', 'template_ku5pa29', form.current, 'DpIxhGCf5pshat00K')
+            .then((result) => {
+                console.log(result.text);
+            }, (error) => {
+                console.log(error.text);
+            });
+    };
+    return (
+        <div>
+            <div className="bg-no-repeat bg-cover contact-container bg-black bg-blend-darken">
+                <div className="h-[100vh] w-[100vw] bg-img-overlay pt-12 pb-20">
+                    <div className="text-center text-white py-12 space-y-2 ">
+                        <h2 className='text-3xl lg:text-4xl font-bold font-mono '>Contact Our Team</h2>
+                        <h3 className=''>Have any questions ? <br className='lg:hidden' />
+                            We love to hear from you .</h3>
+                    </div>
+                    <div className="flex flex-col justify-center  lg:flex-row container mx-auto px-8 gap-6">
 
-                />
-                <p className='text-[13px] text-red-500 pl-3'></p>
-              </div>
+                        <form ref={form} onSubmit={sendEmail} className="lg:w-1/2 space-y-2 p-5 bg-base-100 rounded-lg">
 
-              <div className='flex flex-col space-y-1 '>
-                <input
-                  type="text"
-                  placeholder='Enter your Subject'
-                  className='border rounded-lg py-2 text-lg pl-3 hover:border-primary duration-300'
-
-                />
-                <p className='text-[13px] text-red-500 pl-3'></p>
-              </div>
-
-              <div className='flex flex-col space-y-1 pb-3'>
-                <textarea
-                  type="text"
-                  rows={4}
-                  placeholder='Write your message'
-                  className='text-black border rounded-lg py-1 text-xl pl-3 hover:border-primary duration-300'
-
-                />
-                <p className='text-[13px] text-red-500 pl-3'></p>
-              </div>
-
-              <div className="pb-5 lg:pb-0 text-center lg:text-start">
-                <button className='px-5 py-3  border bg-primary duration-300 hover:bg-[#6f49c7] rounded-lg text-lg w-full text-white'>
-                  Submit Now
-                </button>
-              </div>
-            </form>
+                            <input
+                                type="text"
+                                name="from_name"
+                                placeholder='Enter your name'
+                                className='w-full border rounded-lg py-2 text-lg pl-3 hover:border-primary duration-300'
+                            />
 
 
-          </div>
+
+                            <input
+                                type="email"
+                                name="user_email"
+                                placeholder='Enter your email'
+                                className='w-full border rounded-lg py-2 text-lg pl-3 hover:border-primary duration-300'
+                            />
+
+
+                            <input
+                                type="text"
+                                name="mail_subject"
+                                placeholder='Enter your Subject'
+                                className='w-full border rounded-lg py-2 text-lg pl-3 hover:border-primary duration-300'
+                            />
+
+
+                            <textarea
+                                type="text"
+                                name="message"
+                                rows={4}
+                                placeholder='Write your message'
+                                className='w-full text-black border rounded-lg py-1 text-xl pl-3 hover:border-primary duration-300'
+                            />
+
+                            <button
+                                className='px-5 py-3  border bg-primary duration-300 hover:bg-[#6f49c7] rounded-lg text-lg w-full text-white'
+                                type='submit'
+                                name='submit'
+                            >
+                                Submit Now
+                            </button>
+
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+
         </div>
-      </div>
-
-    </div>
-  )
+    )
 }
 
 export default Contact
