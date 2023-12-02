@@ -1,6 +1,9 @@
 import { useRef } from 'react'
 import './Contact.css'
 import emailjs from '@emailjs/browser';
+import { NavbarComponent } from '../NavbarComponent';
+import Footer from '../Footer';
+
 const Contact = () => {
 
     const form = useRef(null);
@@ -14,7 +17,8 @@ const Contact = () => {
             });
     };
     return (
-        <div>
+        <>
+            <NavbarComponent />
             <div className="bg-no-repeat bg-cover contact-container bg-black bg-blend-darken">
                 <div className="h-[100vh] w-[100vw] bg-img-overlay pt-12 pb-20">
                     <div className="text-center text-white py-12 space-y-2 ">
@@ -73,8 +77,8 @@ const Contact = () => {
                     </div>
                 </div>
             </div>
-
-        </div>
+            <Footer />
+        </>
     )
 }
 
