@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import ThemeChanger from '../shared/ThemeChanger/ThemeChanger';
 import SettingsIcon from '../assets/svg/SettingsIcon'
+import HomeIcon from '../assets/svg/HomeIcon';
 
 // import Logo from '../../assets/logo.png'
 // import { RiMenu4Fill } from 'react-icons/ri'
@@ -16,31 +17,36 @@ export const NavbarComponent = ({ openModal }) => {
   };
   const NavMenus = (
     <>
-      <li className='border-none lg:mr-6 py-2 lg:py-0 lg:hidden'>
+      <li className='border-none lg:mr-6 py-2 lg:py-0'>
         <NavLink onClick={handleScrollToTop} to="/" className={({ isActive }) =>
           isActive ? "text-white btn btn-primary" : "btn glass text-black"
-        }>Home</NavLink>
+        }> 
+        <span className='hidden lg:block'>
+          <HomeIcon/>
+        </span> 
+        <span className='lg:hidden block'>
+          Home
+        </span> 
+        </NavLink>
       </li>
-      <li className='lg:mr-6 py-2 lg:py-0'>
-        <NavLink to="/bteb/result" className={({ isActive }) =>
-          isActive ? " text-white btn btn-primary" : "btn glass text-black"
-        }>Individual Result</NavLink>
-      </li>
-      <li className='lg:mr-6 py-2 lg:py-0'>
-        <NavLink to="/bteb/group-result" className={({ isActive }) =>
-          isActive ? "text-white btn btn-primary" : "btn glass text-black"
-        }>Group Result</NavLink>
-      </li>
-      <li className='py-2 lg:py-0'>
+
+      
+      <li className='py-2 lg:py-0 lg:mr-6'>
         <NavLink to="/saved-codes" className={({ isActive }) =>
           isActive ? "text-white btn btn-primary" : "btn glass text-black"
         }>Saved Codes</NavLink>
       </li>
-      <li className='lg:hidden py-2 lg:py-0'>
+
+      <li className='py-2 lg:py-0'>
+        <NavLink to="/contact" className={({ isActive }) =>
+          isActive ? "text-white btn btn-primary" : "btn glass text-black"
+        }>Feedback</NavLink>
+      </li>
+      {/* <li className='lg:hidden py-2 lg:py-0'>
         <NavLink to="/bteb/developers" className={({ isActive }) =>
           isActive ? "text-white btn btn-primary" : "btn glass text-black"
         }>Developers</NavLink>
-      </li>
+      </li> */}
     </>
   )
 
