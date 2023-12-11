@@ -20,7 +20,7 @@ const Contact = () => {
         <>
             <NavbarComponent />
             <div className="bg-no-repeat bg-cover contact-container bg-black bg-blend-darken">
-                <div className="h-[100vh] w-[100vw] bg-img-overlay pt-12 pb-20">
+                <div className="h-[100vh] bg-img-overlay pt-12 pb-20">
                     <div className="text-center text-white py-12 space-y-2 ">
                         <h2 className='text-3xl lg:text-4xl font-bold font-mono '>Contact Our Team</h2>
                         <h3 className=''>Have any questions ? <br className='lg:hidden' />

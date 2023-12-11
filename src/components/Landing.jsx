@@ -20,16 +20,16 @@ import { NavbarComponent } from "./NavbarComponent";
 import FontSizeDropdown from "./FontSizeDropdown";
 import ThemeChanger from "../shared/ThemeChanger/ThemeChanger";
 
-const javascriptDefault = `console.log("Hello World")
-`;
+
 
 const Landing = () => {
-  const [code, setCode] = useState(javascriptDefault);
+
   const [customInput, setCustomInput] = useState("");
   const [outputDetails, setOutputDetails] = useState(null);
   const [processing, setProcessing] = useState(null);
   const [theme, setTheme] = useState("cobalt");
   const [language, setLanguage] = useState(languageOptions[0]);
+  const [code, setCode] = useState(language.boilerplate);
   const [title, setTitle] = useState("");
   const [fontSize, setFontSize] = useState(null);
   const enterPress = useKeyPress("Enter");
@@ -53,6 +53,7 @@ const Landing = () => {
   const onSelectChange = (sl) => {
     console.log("selected Option...", sl);
     setLanguage(sl);
+
   };
 
   useEffect(() => {
@@ -61,7 +62,10 @@ const Landing = () => {
       console.log("ctrlPress", ctrlPress);
       handleCompile();
     }
-  }, [ctrlPress, enterPress]);
+    // console.log("language...", language);
+    setCode(language.boilerplate)
+    // console.log("code...", code);
+  }, [ctrlPress, enterPress, language]);
   const onChange = (action, data) => {
     switch (action) {
       case "code": {
@@ -237,6 +241,7 @@ const Landing = () => {
               code={code}
               onChange={onChange}
               language={language?.value}
+              extension={language?.extension}
               theme={theme.value}
               fontSize={fontSize}
             />
