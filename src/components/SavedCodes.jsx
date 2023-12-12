@@ -3,10 +3,19 @@ import CodeEditorWindow from "./CodeEditorWindow";
 import { toast, ToastContainer } from 'react-toastify';
 import { NavbarComponent } from "./NavbarComponent";
 import Footer from "./Footer";
+import ThemeChanger from "../shared/ThemeChanger/ThemeChanger";
 
 
 const SavedCodes = () => {
     const [savedCodes, setSavedCodes] = useState([]);
+    const [isModalOpen, setModalOpen] = useState(false);
+    const openModal = () => {
+      setModalOpen(true);
+    }
+    const closeModal = () => {
+      setModalOpen(false);
+    }
+    const [daisyTheme, setDaisyTheme] = useState('');
 
     useEffect(() => {
         const codes = JSON.parse(localStorage.getItem("savedCodes")) || [];
@@ -30,7 +39,8 @@ const SavedCodes = () => {
 
     return (
         <div>
-            <NavbarComponent />
+            <NavbarComponent openModal={openModal} />
+      <ThemeChanger isModalOpen={isModalOpen} closeModal={closeModal} daisyTheme={daisyTheme} setDaisyTheme={setDaisyTheme} />
             <div className="mx-6 my-10 pt-3">
 
                 <h1 className="text-4xl font-bold mb-8 mt-8">Saved Codes</h1>

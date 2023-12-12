@@ -5,7 +5,6 @@ import Footer from '../components/Footer'
 import BackToUp from '@uiw/react-back-to-top';
 import ThemeChanger from '../shared/ThemeChanger/ThemeChanger';
 
-
 const Root = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const openModal = () => {

@@ -1,10 +1,19 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import './Contact.css'
 import emailjs from '@emailjs/browser';
 import { NavbarComponent } from '../NavbarComponent';
 import Footer from '../Footer';
+import ThemeChanger from '../../shared/ThemeChanger/ThemeChanger';
 
 const Contact = () => {
+    const [isModalOpen, setModalOpen] = useState(false);
+    const openModal = () => {
+      setModalOpen(true);
+    }
+    const closeModal = () => {
+      setModalOpen(false);
+    }
+    const [daisyTheme, setDaisyTheme] = useState('');
 
     const form = useRef(null);
     const sendEmail = (e) => {
@@ -16,9 +25,11 @@ const Contact = () => {
                 console.log(error.text);
             });
     };
+    
     return (
         <>
-            <NavbarComponent />
+            <NavbarComponent openModal={openModal} />
+      <ThemeChanger isModalOpen={isModalOpen} closeModal={closeModal} daisyTheme={daisyTheme} setDaisyTheme={setDaisyTheme} />
             <div className="bg-no-repeat bg-cover contact-container bg-black bg-blend-darken">
                 <div className="h-[100vh] bg-img-overlay pt-12 pb-20">
                     <div className="text-center text-white py-12 space-y-2 ">

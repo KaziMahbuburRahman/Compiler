@@ -35,7 +35,8 @@ const Landing = () => {
   const enterPress = useKeyPress("Enter");
   const ctrlPress = useKeyPress("Control");
 
-  const handleSaveCode = () => {
+  const handleSaveCode = (e) => {
+    e.preventDefault();
     const savedCodes = JSON.parse(localStorage.getItem("savedCodes")) || [];
 
     const newCode = {
@@ -47,25 +48,27 @@ const Landing = () => {
 
     savedCodes.push(newCode);
     localStorage.setItem("savedCodes", JSON.stringify(savedCodes));
+    //clear the input field
+    setTitle("");
     showSuccessToast("Code saved successfully!");
   };
 
   const onSelectChange = (sl) => {
     console.log("selected Option...", sl);
     setLanguage(sl);
-
+    setCode(sl.boilerplate)
   };
 
   useEffect(() => {
     if (enterPress && ctrlPress) {
-      console.log("enterPress", enterPress);
-      console.log("ctrlPress", ctrlPress);
+      // console.log("enterPress", enterPress);
+      // console.log("ctrlPress", ctrlPress);
       handleCompile();
     }
-    // console.log("language...", language);
-    setCode(language.boilerplate)
+
     // console.log("code...", code);
-  }, [ctrlPress, enterPress, language]);
+  }, [ctrlPress, enterPress]);
+  
   const onChange = (action, data) => {
     switch (action) {
       case "code": {
@@ -101,7 +104,7 @@ const Landing = () => {
     axios
       .request(options)
       .then(function (response) {
-        console.log("res.data", response.data);
+        // console.log("res.data", response.data);
         const token = response.data.token;
         checkStatus(token);
       })
@@ -244,30 +247,34 @@ const Landing = () => {
               extension={language?.extension}
               theme={theme.value}
               fontSize={fontSize}
+              setLanguage={setLanguage}
             />
           </div>
 
           <div className="right-container flex sm:pl-20 sm:pr-5 lg:p-0 lg:w-[35%] flex-shrink-0 sm:w-[85%] w-[100%] flex-col">
 
             {/* save button */}
-            <div className="py-1 w-full">
-              <input
-                className="w-[60%] border-gray-400 border-2 rounded-md p-2 placeholder-gray-500 shadow-md text-black bg-white mr-2 focus:outline-none focus:ring-2 focus:ring-purple-600"
-                type="text"
-                placeholder="Enter Title"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-              />
-              <button onClick={handleSaveCode} className={classnames(
-                "w-auto text-white bg-purple-600 border-2 border-purple-600 z-10 rounded-md shadow-md px-2 py-2 hover:bg-purple-700 transition duration-200",
-                "mt-2 ml-4", // adjust the margin values to match the other elements
-                !code ? "opacity-50 cursor-not-allowed" : ""
-              )}
-                disabled={!code}
-              >
-                Save Code
-              </button>
-            </div>
+            <form onSubmit={handleSaveCode}>
+              <div className="py-1 w-full">
+                <input
+                  required
+                  className="w-[60%] border-gray-400 border-2 rounded-md p-2 placeholder-gray-500 shadow-md text-black bg-white mr-2 focus:outline-none focus:ring-2 focus:ring-purple-600"
+                  type="text"
+                  placeholder="Enter Title"
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                />
+                <button type="submit" className={classnames(
+                  "w-auto text-white bg-purple-600 border-2 border-purple-600 z-10 rounded-md shadow-md px-2 py-2 hover:bg-purple-700 transition duration-200",
+                  "mt-2 ml-4", // adjust the margin values to match the other elements
+                  !code ? "opacity-50 cursor-not-allowed" : ""
+                )}
+                  disabled={!code}
+                >
+                  Save Code
+                </button>
+              </div>
+            </form>
 
             <OutputWindow outputDetails={outputDetails} />
             <div className="flex flex-col items-end">
