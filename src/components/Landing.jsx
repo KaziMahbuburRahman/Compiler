@@ -35,14 +35,26 @@ const Landing = () => {
   const enterPress = useKeyPress("Enter");
   const ctrlPress = useKeyPress("Control");
 
+  function formatTimestamp(inputTimestamp) {
+    // Parse input timestamp
+    const timestamp = new Date(inputTimestamp);
+  
+    // Format output timestamp
+    const options = { month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true };
+    const outputTimestamp = timestamp.toLocaleString('en-US', options);
+  
+    return outputTimestamp;
+  }
+
   const handleSaveCode = (e) => {
     e.preventDefault();
     const savedCodes = JSON.parse(localStorage.getItem("savedCodes")) || [];
 
     const newCode = {
       code,
+      language: language.value,
       title: title,
-      timestamp: new Date().toLocaleString(),
+      timestamp: formatTimestamp(Date.now()),
       outputDetails: outputDetails, // add outputDetails property
     };
 

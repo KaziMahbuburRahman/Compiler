@@ -16,14 +16,7 @@ const Footer = () => {
         <div>
           <span className="footer-title">Important Links</span>
           <a className="link-info text-white" href='https://techhelpbd.com/about-us' target='_blank' rel='noopener noreferrer'>About Us</a>
-          <a className="link-info text-white" href='https://techhelpbd.com/contact-us' target='_blank' rel='noopener noreferrer'>Contact Us</a>
-          <Link to="/bteb/developers" className="link-info text-white">Developers</Link>
-          <Link to="/bteb/result" className="link-info text-white">
-            Individual Result
-          </Link>
-          <Link to="/bteb/group-result" className="link-info text-white">
-            Group Result
-          </Link>
+          <Link className="link-info text-white" to="/contact">Contact Us</Link>
           <Link to="/saved-codes" className="link-info text-white">
             Saved Codes
           </Link>

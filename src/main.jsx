@@ -8,14 +8,7 @@ import Root from './Layouts/Root.jsx';
 import NotFound from './components/NotFound/NotFound.jsx';
 import SavedCodes from './components/SavedCodes.jsx';
 import Contact from './components/Contact/Contact.jsx';
-
-import { ClerkProvider, RedirectToSignIn, SignedIn, SignedOut, SignIn, SignUp } from "@clerk/clerk-react";
-import ProtectedPage from './components/ProtectedPage.jsx';
-
-if (!import.meta.env.VITE_CLERK_PUBLISHABLE_KEY) {
-  throw new Error("Missing Publishable Key")
-}
-const clerkPubKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
+import SavedCodeEditor from './components/SavedCodeEditor.jsx';
 
 const router = createBrowserRouter([
   {
@@ -27,25 +20,6 @@ const router = createBrowserRouter([
     element: <NotFound />
   },
   {
-    path: "/sign-in",
-    element: <SignIn redirectUrl={'/protected'} />
-  },
-  {
-    path: "/sign-up",
-    element: <SignUp redirectUrl={'/protected'} />
-  },
-  {
-    path: "/protected",
-    element: <>
-    <SignedIn>
-      <ProtectedPage/>
-    </SignedIn>
-    <SignedOut>
-      <RedirectToSignIn/>
-    </SignedOut>
-    </>
-  },
-  {
     path: "*",
     element: <NotFound />
   },
@@ -54,13 +28,16 @@ const router = createBrowserRouter([
     element: <SavedCodes />
   },
   {
+    path: "/saved-codes/:index",
+    element: <SavedCodeEditor />
+  },
+  {
     path: "/contact",
     element: <Contact />
   }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <ClerkProvider publishableKey={clerkPubKey}>
-    <RouterProvider router={router} />
-  </ClerkProvider>
+  <RouterProvider router={router} />
+
 );

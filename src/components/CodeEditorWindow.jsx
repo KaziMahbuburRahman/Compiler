@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Editor from "@monaco-editor/react";
 import { toast } from "react-toastify";
 import DownloadCode from "./DownloadCode";
+import { on } from "events";
 
 
 const CodeEditorWindow = ({ onChange, language, extension, code, theme, fontSize }) => {
@@ -10,9 +11,11 @@ const CodeEditorWindow = ({ onChange, language, extension, code, theme, fontSize
 
   useEffect(() => {
 
-    setValue(code || "");  
-  
+    setValue(code || "");
+
   }, [language]);
+
+  console.log(onChange)
 
   const handleEditorChange = (value) => {
     console.log("value changed", value)
@@ -37,19 +40,20 @@ const CodeEditorWindow = ({ onChange, language, extension, code, theme, fontSize
     <div className="overlay rounded-md overflow-hidden w-full h-full shadow-4xl">
       <div className="flex items-center justify-between px-4 py-2 bg-black border-b border-gray-600">
         <h1 className="text-xl font-bold text-white">Code Editor</h1>
-        
-        <DownloadCode
-                                code={code}
-                                lang_extension={extension}
-                            />
-                            {/* <ShareCode/> */}
 
-        <button
-          className="px-4 py-2 text-white bg-blue-500 rounded-md shadow-md hover:shadow-lg transition duration-200"
-          onClick={handleCopyToClipboard}
-        >
-          Copy
-        </button>
+        <div className="flex justify-center items-center">
+          <DownloadCode
+            code={code}
+            lang_extension={extension}
+          />
+
+          <button
+            className="mx-5 px-4 py-2 text-white bg-blue-500 rounded-md shadow-md hover:shadow-lg transition duration-200"
+            onClick={handleCopyToClipboard}
+          >
+            Copy
+          </button>
+        </div>
       </div>
       <Editor
         className="h-[35vh] lg:h-[75vh]"

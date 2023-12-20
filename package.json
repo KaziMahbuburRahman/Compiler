@@ -10,7 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@clerk/clerk-react": "^4.28.1",
     "@emailjs/browser": "^3.11.0",
     "@monaco-editor/react": "^4.4.4",
     "@testing-library/jest-dom": "^6.1.4",
