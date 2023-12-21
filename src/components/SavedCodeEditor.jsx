@@ -13,14 +13,17 @@ import OutputDetails from "./OutputDetails";
 import OutputWindow from "./OutputWindow";
 import CustomInput from "./CustomInput";
 import { NavbarComponent } from "./NavbarComponent";
+import Footer from "./Footer";
 
 
 const SavedCodeEditor = ({ editingIndex, setEditedCode, setEditingIndex, setSavedCodes, savedCodes, setChildAction, childAction, onChange, language, extension, theme, fontSize }) => {
 
     const { index } = useParams();
-    const [title, setTitle] = useState('');
+
     const codes = JSON.parse(localStorage.getItem('savedCodes')) || [];
     const code = codes[index].code;
+    const initialTitle = codes[index].title;
+    const [title, setTitle] = useState(initialTitle || '');
     const [value, setValue] = useState(code || "");
     const [isModalOpen, setModalOpen] = useState(false);
     const openModal = () => {
@@ -86,18 +89,18 @@ const SavedCodeEditor = ({ editingIndex, setEditedCode, setEditingIndex, setSave
         // console.log("title", title);
         // console.log("value", value);
 
-        console.log("old codes[index].title", codes[index].title);
-        console.log(" old codes[index].code", codes[index].code);
+        // console.log("old codes[index].title", codes[index].title);
+        // console.log(" old codes[index].code", codes[index].code);
         codes[index].title = title;
         codes[index].code = value;
         const updatedCodes = [...codes];
-
+        console.log("updatedCodes", updatedCodes);
         // setSavedCodes(updatedCodes);
         localStorage.setItem("savedCodes", JSON.stringify(updatedCodes));
-        console.log("codes[index].title", codes[index].title);
-        console.log("codes[index].code", codes[index].code);
+        // console.log("codes[index].title", codes[index].title);
+        // console.log("codes[index].code", codes[index].code);
         toast.success("Code Successfully Updated!", {
-            position: "top-center",
+            position: "top-right",
             autoClose: 2000,
             hideProgressBar: true,
             closeOnClick: true,
@@ -171,6 +174,7 @@ const SavedCodeEditor = ({ editingIndex, setEditedCode, setEditingIndex, setSave
                             placeholder="Enter Title"
                             defaultValue={codes[index].title}
                             onChange={handleTitleChange}
+
                         />
                         <button type="submit" className={classnames(
                             "w-auto text-white bg-purple-600 border-2 border-purple-600 z-10 rounded-md shadow-md px-2 py-2 hover:bg-purple-700 transition duration-200",
@@ -184,6 +188,7 @@ const SavedCodeEditor = ({ editingIndex, setEditedCode, setEditingIndex, setSave
                     </div>
                 </form>
             </div>
+            <Footer />
         </>
     );
 };

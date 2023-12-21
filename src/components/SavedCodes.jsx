@@ -27,7 +27,7 @@ const SavedCodes = () => {
     useEffect(() => {
         const codes = JSON.parse(localStorage.getItem("savedCodes")) || [];
         setSavedCodes(codes);
-        console.log(codes);
+        // console.log(codes);
     }, []);
 
     const handleEditButton = (index) => {
