@@ -1,0 +1,2 @@
+1. Need to add icons instead of img/text in savedCodeEditor and CodeEditorWindow
+2. Add a Cancel button beside Update/Back button in the savedCodeEditor
