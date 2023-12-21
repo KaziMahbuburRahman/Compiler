@@ -129,7 +129,7 @@ const SavedCodeEditor = ({ editingIndex, setEditedCode, setEditingIndex, setSave
 
 
             <div className="flex justify-center items-center flex-col bg-[#171212]">
-                <div className="overlay rounded-md overflow-hidden w-[50%] h-full shadow-4xl">
+                <div className="overlay rounded-md overflow-hidden w-[75%] h-full shadow-4xl">
                     <div className="flex items-center justify-between px-4 py-2 bg-black border-b border-gray-600">
                         <h1 className="text-xl font-bold text-white">Code Editor</h1>
 
