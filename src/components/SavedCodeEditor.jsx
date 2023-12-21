@@ -128,48 +128,45 @@ const SavedCodeEditor = ({ editingIndex, setEditedCode, setEditingIndex, setSave
             <div className="h-4 w-full bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500"></div>
 
 
-            <div className="overlay rounded-md overflow-hidden w-full h-full shadow-4xl">
-                <div className="flex items-center justify-between px-4 py-2 bg-black border-b border-gray-600">
-                    <h1 className="text-xl font-bold text-white">Code Editor</h1>
+            <div className="flex justify-center items-center flex-col bg-[#171212]">
+                <div className="overlay rounded-md overflow-hidden w-[50%] h-full shadow-4xl">
+                    <div className="flex items-center justify-between px-4 py-2 bg-black border-b border-gray-600">
+                        <h1 className="text-xl font-bold text-white">Code Editor</h1>
 
-                    <div className="flex justify-center items-center">
-                        <DownloadCode
-                            code={code}
-                            lang_extension={extension}
-                        />
+                        <div className="flex justify-center items-center">
+                            <DownloadCode
+                                code={code}
+                                lang_extension={extension}
+                            />
 
-                        <button
-                            className="mx-5 px-4 py-2 text-white bg-blue-500 rounded-md shadow-md hover:shadow-lg transition duration-200"
-                            onClick={handleCopyToClipboard}
-                        >
-                            Copy
-                        </button>
+                            <button
+                                className="mx-5 px-4 py-2 text-white bg-blue-500 rounded-md shadow-md hover:shadow-lg transition duration-200"
+                                onClick={handleCopyToClipboard}
+                            >
+                                Copy
+                            </button>
+                        </div>
                     </div>
-                </div>
-                <Editor
-                    className="h-[35vh] lg:h-[75vh]"
-                    width={`100%`}
-                    language={language || "javascript"}
-                    value={value}
-                    theme={theme}
-                    options={{
-                        fontSize: fontSize,
-                        scrollbar: {
-                            alwaysConsumeMouseWheel: false,
-                        },
-                    }}
-                    defaultValue={codes[index].code}
-                    onChange={handleEditorChange}
-                />
-            </div>
-            <div className="right-container flex sm:pl-20 sm:pr-5 lg:p-0 lg:w-[35%] flex-shrink-0 sm:w-[85%] w-[100%] flex-col">
-
-                {/* save button */}
+                    <Editor
+                        className="h-[35vh] lg:h-[75vh]"
+                        width={`100%`}
+                        language={language || "javascript"}
+                        value={value}
+                        theme={theme}
+                        options={{
+                            fontSize: fontSize,
+                            scrollbar: {
+                                alwaysConsumeMouseWheel: false,
+                            },
+                        }}
+                        defaultValue={codes[index].code}
+                        onChange={handleEditorChange}
+                    />
                 <form onSubmit={handleCodeUpdate}>
-                    <div className="py-1 w-full">
+                    <div className="flex justify-center py-1 w-full bg-black">
                         <input
                             required
-                            className="w-[60%] border-gray-400 border-2 rounded-md p-2 placeholder-gray-500 shadow-md text-black bg-white mr-2 focus:outline-none focus:ring-2 focus:ring-purple-600"
+                            className="w-[100%] border-gray-400 border-2 rounded-md p-2 placeholder-gray-500 shadow-md text-black bg-white mr-2 focus:outline-none focus:ring-2 focus:ring-purple-600"
                             type="text"
                             placeholder="Enter Title"
                             defaultValue={codes[index].title}
@@ -187,7 +184,13 @@ const SavedCodeEditor = ({ editingIndex, setEditedCode, setEditingIndex, setSave
                         </button>
                     </div>
                 </form>
+                </div>
+                
             </div>
+
+            {/* save button */}
+
+
             <Footer />
         </>
     );
