@@ -90,7 +90,7 @@ const SavedCodeEditor = ({ editingIndex, setEditedCode, setEditingIndex, setSave
         console.log(" old codes[index].code", codes[index].code);
         codes[index].title = title;
         codes[index].code = value;
-        const updatedCodes = [...codes, codes[index]];
+        const updatedCodes = [...codes];
 
         // setSavedCodes(updatedCodes);
         localStorage.setItem("savedCodes", JSON.stringify(updatedCodes));
