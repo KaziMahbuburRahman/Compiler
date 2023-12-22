@@ -61,6 +61,17 @@ const SavedCodes = () => {
         <div>
             <NavbarComponent openModal={openModal} />
             <ThemeChanger isModalOpen={isModalOpen} closeModal={closeModal} daisyTheme={daisyTheme} setDaisyTheme={setDaisyTheme} />
+            <ToastContainer
+                position="top-right"
+                autoClose={2000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
             <div className="mx-6 my-10 pt-3">
 
                 <h1 className="text-4xl font-bold mb-8 mt-8">Saved Codes</h1>

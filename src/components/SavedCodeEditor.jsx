@@ -108,7 +108,9 @@ const SavedCodeEditor = ({ editingIndex, setEditedCode, setEditingIndex, setSave
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
+            onClose: () => navigate('/saved-codes')
         });
+        
     };
 
 
@@ -166,7 +168,7 @@ const SavedCodeEditor = ({ editingIndex, setEditedCode, setEditingIndex, setSave
 
 
                     <form onSubmit={handleCodeUpdate}>
-                        <div className="flex justify-between px-1 py-1 w-full h-[60px] bg-black">
+                        <div className="flex justify-between py-1 w-full h-[60px] bg-black">
                             <input
                                 required
                                 className="w-[70%] border-gray-400 border-2 rounded-md p-2 placeholder-gray-500 shadow-md text-black bg-white mr-2 focus:outline-none focus:ring-2 focus:ring-purple-600"
@@ -185,7 +187,7 @@ const SavedCodeEditor = ({ editingIndex, setEditedCode, setEditingIndex, setSave
                             >
                                 Update
                             </button>
-                            <button onClick={() => navigate(-1)} className="active:bg-gray-950 active:scale-90 flex justify-center items-center gap-1 glass rounded-md p-2 px-3 border-2 text-white mx-2">Back</button>
+                            <button onClick={() => navigate('/saved-codes')} className="active:bg-gray-950 active:scale-90  transition duration-200 flex justify-center items-center gap-1 glass rounded-md p-2 px-3 border-2 text-white mx-2">Back</button>
                         </div>
                     </form>
 
