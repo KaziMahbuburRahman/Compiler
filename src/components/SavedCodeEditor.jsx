@@ -14,6 +14,7 @@ import OutputWindow from "./OutputWindow";
 import CustomInput from "./CustomInput";
 import { NavbarComponent } from "./NavbarComponent";
 import Footer from "./Footer";
+import Copy from "../assets/svg/Copy";
 
 
 const SavedCodeEditor = ({ editingIndex, setEditedCode, setEditingIndex, setSavedCodes, savedCodes, setChildAction, childAction, onChange, language, extension, theme, fontSize }) => {
@@ -133,17 +134,17 @@ const SavedCodeEditor = ({ editingIndex, setEditedCode, setEditingIndex, setSave
                     <div className="flex items-center justify-between px-4 py-2 bg-black border-b border-gray-600">
                         <h1 className="text-xl font-bold text-white">Code Editor</h1>
 
-                        <div className="flex justify-center items-center">
+                        <div className="flex justify-center items-center gap-2">
                             <DownloadCode
                                 code={code}
                                 lang_extension={extension}
                             />
 
                             <button
-                                className="mx-5 px-4 py-2 text-white bg-blue-500 rounded-md shadow-md hover:shadow-lg transition duration-200"
+                                className="hover:text-blue-500 transition duration-200 hover:scale-110 "
                                 onClick={handleCopyToClipboard}
                             >
-                                Copy
+                                <Copy />
                             </button>
                         </div>
                     </div>
@@ -162,30 +163,30 @@ const SavedCodeEditor = ({ editingIndex, setEditedCode, setEditingIndex, setSave
                         defaultValue={codes[index].code}
                         onChange={handleEditorChange}
                     />
-                <form onSubmit={handleCodeUpdate}>
-                    <div className="flex justify-center py-1 w-full bg-black">
-                        <input
-                            required
-                            className="w-[100%] border-gray-400 border-2 rounded-md p-2 placeholder-gray-500 shadow-md text-black bg-white mr-2 focus:outline-none focus:ring-2 focus:ring-purple-600"
-                            type="text"
-                            placeholder="Enter Title"
-                            defaultValue={codes[index].title}
-                            onChange={handleTitleChange}
+                    <form onSubmit={handleCodeUpdate}>
+                        <div className="flex justify-center py-1 w-full bg-black">
+                            <input
+                                required
+                                className="w-[100%] border-gray-400 border-2 rounded-md p-2 placeholder-gray-500 shadow-md text-black bg-white mr-2 focus:outline-none focus:ring-2 focus:ring-purple-600"
+                                type="text"
+                                placeholder="Enter Title"
+                                defaultValue={codes[index].title}
+                                onChange={handleTitleChange}
 
-                        />
-                        <button type="submit" className={classnames(
-                            "w-auto text-white bg-purple-600 border-2 border-purple-600 z-10 rounded-md shadow-md px-2 py-2 hover:bg-purple-700 transition duration-200",
-                            "mt-2 ml-4", // adjust the margin values to match the other elements
-                            !value ? "opacity-50 cursor-not-allowed" : ""
-                        )}
-                            disabled={!value}
-                        >
-                            Update
-                        </button>
-                    </div>
-                </form>
+                            />
+                            <button type="submit" className={classnames(
+                                "w-auto text-white bg-purple-600 border-2 border-purple-600 z-10 rounded-md shadow-md px-2 py-2 hover:bg-purple-700 transition duration-200",
+                                "mt-2 ml-4", // adjust the margin values to match the other elements
+                                !value ? "opacity-50 cursor-not-allowed" : ""
+                            )}
+                                disabled={!value}
+                            >
+                                Update
+                            </button>
+                        </div>
+                    </form>
                 </div>
-                
+
             </div>
 
             {/* save button */}

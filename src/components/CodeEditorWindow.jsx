@@ -4,6 +4,7 @@ import Editor from "@monaco-editor/react";
 import { toast } from "react-toastify";
 import DownloadCode from "./DownloadCode";
 import { on } from "events";
+import Copy from "../assets/svg/Copy";
 
 
 const CodeEditorWindow = ({ onChange, language, extension, code, theme, fontSize }) => {
@@ -41,17 +42,17 @@ const CodeEditorWindow = ({ onChange, language, extension, code, theme, fontSize
       <div className="flex items-center justify-between px-4 py-2 bg-black border-b border-gray-600">
         <h1 className="text-xl font-bold text-white">Code Editor</h1>
 
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center gap-2">
           <DownloadCode
             code={code}
             lang_extension={extension}
           />
 
           <button
-            className="mx-5 px-4 py-2 text-white bg-blue-500 rounded-md shadow-md hover:shadow-lg transition duration-200"
+            className="hover:text-blue-500 transition duration-200 hover:scale-110 "
             onClick={handleCopyToClipboard}
           >
-            Copy
+            <Copy />
           </button>
         </div>
       </div>
