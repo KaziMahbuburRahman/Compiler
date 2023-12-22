@@ -1,3 +1,6 @@
 1. Need to add icons instead of img/text in savedCodeEditor and CodeEditorWindow
 2. Added a Cancel/Back button beside Update button in the savedCodeEditor
 3. used active instead of hover to make button more realistic
+4. add themeChanger to the savedCodeEditor
+5. add Edit, Delete toast to savedCodes
+6. added toast and navigated to savedCodes from savedCodeEditor after updating the code
