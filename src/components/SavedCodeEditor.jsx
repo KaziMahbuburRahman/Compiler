@@ -141,7 +141,7 @@ const SavedCodeEditor = ({ editingIndex, setEditedCode, setEditingIndex, setSave
                             />
 
                             <button
-                                className="hover:text-blue-500 transition duration-200 hover:scale-110 "
+                                className="active:text-blue-500 transition duration-200 active:scale-90"
                                 onClick={handleCopyToClipboard}
                             >
                                 <Copy />

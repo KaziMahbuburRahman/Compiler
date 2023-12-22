@@ -49,7 +49,7 @@ const CodeEditorWindow = ({ onChange, language, extension, code, theme, fontSize
           />
 
           <button
-            className="hover:text-blue-500 transition duration-200 hover:scale-110 "
+            className="active:text-blue-500 transition duration-200 active:scale-90"
             onClick={handleCopyToClipboard}
           >
             <Copy />
