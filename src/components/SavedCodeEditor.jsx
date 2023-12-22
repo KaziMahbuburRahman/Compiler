@@ -4,7 +4,7 @@ import Editor from "@monaco-editor/react";
 import { ToastContainer, toast } from "react-toastify";
 import DownloadCode from "./DownloadCode";
 import { on } from "events";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import LanguagesDropdown from "./LanguagesDropdown";
 import ThemeDropdown from "./ThemeDropdown";
 import FontSizeDropdown from "./FontSizeDropdown";
@@ -20,7 +20,7 @@ import Copy from "../assets/svg/Copy";
 const SavedCodeEditor = ({ editingIndex, setEditedCode, setEditingIndex, setSavedCodes, savedCodes, setChildAction, childAction, onChange, language, extension, theme, fontSize }) => {
 
     const { index } = useParams();
-
+    const navigate = useNavigate();
     const codes = JSON.parse(localStorage.getItem('savedCodes')) || [];
     const code = codes[index].code;
     const initialTitle = codes[index].title;
@@ -163,28 +163,32 @@ const SavedCodeEditor = ({ editingIndex, setEditedCode, setEditingIndex, setSave
                         defaultValue={codes[index].code}
                         onChange={handleEditorChange}
                     />
+
+
                     <form onSubmit={handleCodeUpdate}>
-                        <div className="flex justify-center py-1 w-full bg-black">
+                        <div className="flex justify-between px-1 py-1 w-full h-[60px] bg-black">
                             <input
                                 required
-                                className="w-[100%] border-gray-400 border-2 rounded-md p-2 placeholder-gray-500 shadow-md text-black bg-white mr-2 focus:outline-none focus:ring-2 focus:ring-purple-600"
+                                className="w-[70%] border-gray-400 border-2 rounded-md p-2 placeholder-gray-500 shadow-md text-black bg-white mr-2 focus:outline-none focus:ring-2 focus:ring-purple-600"
                                 type="text"
                                 placeholder="Enter Title"
                                 defaultValue={codes[index].title}
                                 onChange={handleTitleChange}
 
                             />
-                            <button type="submit" className={classnames(
-                                "w-auto text-white bg-purple-600 border-2 border-purple-600 z-10 rounded-md shadow-md px-2 py-2 hover:bg-purple-700 transition duration-200",
+                            <button type="submit" className={`
+                                "w-auto text-white bg-purple-600 border-2 border-purple-600 z-10 rounded-md shadow-md px-2 py-2 active:bg-purple-700 active:scale-90 transition duration-200",
                                 "mt-2 ml-4", // adjust the margin values to match the other elements
-                                !value ? "opacity-50 cursor-not-allowed" : ""
-                            )}
+                                ${!value ? "opacity-50 cursor-not-allowed" : ""}
+                            `}
                                 disabled={!value}
                             >
                                 Update
                             </button>
+                            <button onClick={() => navigate(-1)} className="active:bg-gray-950 active:scale-90 flex justify-center items-center gap-1 glass rounded-md p-2 px-3 border-2 text-white mx-2">Back</button>
                         </div>
                     </form>
+
                 </div>
 
             </div>
