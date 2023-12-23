@@ -5,4 +5,13 @@
 5. add Edit, Delete toast to savedCodes
 6. added toast and navigated to savedCodes from savedCodeEditor after updating the code
 7. Added white color to editor copy and download button
-9. Add Pagination to savedCodes
+9. Added Pagination to savedCodes
+10. add code.outputDetails to savedCodeEditor 
+//hint
+                                     {code.outputDetails && (
+                                        <div className="mt-4 rounded-md bg-gray-100 p-4">
+                                            <p>Status: {code.outputDetails.status && code.outputDetails.status.description}</p>
+                                            <p>Time: {code.outputDetails.time}</p>
+                                            <p>Memory: {code.outputDetails.memory}</p>
+                                        </div>
+                                    )}

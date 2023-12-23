@@ -6,6 +6,7 @@ import Footer from "./Footer";
 import ThemeChanger from "../shared/ThemeChanger/ThemeChanger";
 import SavedCodeEditor from "./SavedCodeEditor";
 import { useNavigate } from 'react-router-dom';
+import { Pagination } from "rc-paginate";
 
 const SavedCodes = () => {
     const navigate = useNavigate();
@@ -14,6 +15,11 @@ const SavedCodes = () => {
     const [isModalOpen, setModalOpen] = useState(false);
     const [editingIndex, setEditingIndex] = useState(null);
     const [editedCode, setEditedCode] = useState('');
+    // Pagination state
+    const [currentPage, setCurrentPage] = useState(1);
+    const [itemsPerPage, setItemsPerPage] = useState(2);
+    const [totalItems, setTotalItems] = useState(0); // Initialize with 0, update later
+
     const openModal = () => {
         setModalOpen(true);
     }
@@ -27,7 +33,7 @@ const SavedCodes = () => {
     useEffect(() => {
         const codes = JSON.parse(localStorage.getItem("savedCodes")) || [];
         setSavedCodes(codes);
-        // console.log(codes);
+        setTotalItems(codes.length)
     }, []);
 
     const handleEditButton = (index) => {
@@ -77,7 +83,7 @@ const SavedCodes = () => {
                 <h1 className="text-4xl font-bold mb-8 mt-8">Saved Codes</h1>
                 {savedCodes.length > 0 ? (
                     <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-                        {savedCodes.map((code, index) => (
+                        {savedCodes.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage).map((code, index) => (
                             <li
                                 key={index}
                                 className="bg-white rounded-md shadow-md overflow-hidden hover:shadow-lg transition duration-200"
@@ -86,14 +92,14 @@ const SavedCodes = () => {
                                     <div className="flex justify-between items-center mb-4">
                                         <span className="text-xl font-bold">{code.title}</span>
                                         <div>
-                                             
-                                                <button
-                                                    onClick={() => handleEditButton(index)}
-                                                    className="text-blue-500 hover:text-blue-600 font-medium"
-                                                >
-                                                    Edit
-                                                </button>
-                                            
+
+                                            <button
+                                                onClick={() => handleEditButton(index)}
+                                                className="text-blue-500 hover:text-blue-600 font-medium"
+                                            >
+                                                Edit
+                                            </button>
+
                                             <button
                                                 onClick={(e) => {
                                                     e.stopPropagation();
@@ -109,15 +115,10 @@ const SavedCodes = () => {
                                         <span className="text-gray-500 text-sm">Language: {code.language || 'Placeholder'}</span>
                                         <span className="text-gray-500 text-sm">Created: {code.timestamp || 'Placeholder'}</span>
                                     </div>
-                                    {code.outputDetails && (
-                                        <div className="mt-4 rounded-md bg-gray-100 p-4">
-                                            <p>Status: {code.outputDetails.status && code.outputDetails.status.description}</p>
-                                            <p>Time: {code.outputDetails.time}</p>
-                                            <p>Memory: {code.outputDetails.memory}</p>
-                                        </div>
-                                    )}
+
                                 </div>
-                                {(editingIndex === index || code.showCode) && (
+
+                                {/* {(editingIndex === index || code.showCode) && (
                                     <div className="px-6 pb-6">
                                         <SavedCodeEditor
                                             setEditingIndex={setEditingIndex}
@@ -132,13 +133,24 @@ const SavedCodes = () => {
                                             editingIndex={editingIndex}
                                         />
                                     </div>
-                                )}
+                                )} */}
                             </li>
                         ))}
                     </ul>
                 ) : (
                     <p className="text-lg text-gray-500 mt-4">No saved codes found.</p>
                 )}
+                <div className="my-2">
+                    <Pagination
+                        totalItems={totalItems}
+                        itemsPerPage={itemsPerPage}
+                        currentPage={currentPage}
+                        setCurrentPage={setCurrentPage}
+                        setItemsPerPage={setItemsPerPage}
+                        color="red"
+                        possibleLimits={[2, 4, 6]}
+                    />
+                </div>
             </div>
             <Footer />
         </div>
