@@ -80,38 +80,20 @@ const SavedCodes = () => {
                         {savedCodes.map((code, index) => (
                             <li
                                 key={index}
-                                className={`bg-white rounded-md shadow-md overflow-hidden hover:shadow-lg transition duration-200 ${editingIndex === index ? 'border-blue-500 border-2' : ''}`}
+                                className="bg-white rounded-md shadow-md overflow-hidden hover:shadow-lg transition duration-200"
                             >
                                 <div className="p-6">
                                     <div className="flex justify-between items-center mb-4">
                                         <span className="text-xl font-bold">{code.title}</span>
                                         <div>
-                                            {editingIndex === index ? (
-                                                <>
-                                                    <button
-                                                        onClick={handleCodeSave}
-                                                        className="text-green-500 hover:text-green-600 font-medium mr-2"
-                                                    >
-                                                        Save
-                                                    </button>
-                                                    <button
-                                                        onClick={() => {
-                                                            setEditingIndex(null);
-                                                            setEditedCode('');
-                                                        }}
-                                                        className="text-gray-500 hover:text-gray-600 font-medium"
-                                                    >
-                                                        Cancel
-                                                    </button>
-                                                </>
-                                            ) : (
+                                             
                                                 <button
                                                     onClick={() => handleEditButton(index)}
                                                     className="text-blue-500 hover:text-blue-600 font-medium"
                                                 >
                                                     Edit
                                                 </button>
-                                            )}
+                                            
                                             <button
                                                 onClick={(e) => {
                                                     e.stopPropagation();
