@@ -143,7 +143,7 @@ const SavedCodeEditor = ({ editingIndex, setEditedCode, setEditingIndex, setSave
                             />
 
                             <button
-                                className="active:text-blue-500 transition duration-200 active:scale-90"
+                                className="text-white active:text-blue-500 transition duration-200 active:scale-90"
                                 onClick={handleCopyToClipboard}
                             >
                                 <Copy />
