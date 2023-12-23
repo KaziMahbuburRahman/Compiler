@@ -4,5 +4,5 @@
 4. add themeChanger to the savedCodeEditor
 5. add Edit, Delete toast to savedCodes
 6. added toast and navigated to savedCodes from savedCodeEditor after updating the code
-7. Adde white color to editor copy and download button
+7. Added white color to editor copy and download button
 9. Add Pagination to savedCodes
