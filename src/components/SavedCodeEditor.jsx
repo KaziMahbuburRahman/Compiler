@@ -15,11 +15,13 @@ import CustomInput from "./CustomInput";
 import { NavbarComponent } from "./NavbarComponent";
 import Footer from "./Footer";
 import Copy from "../assets/svg/Copy";
+import ThemeChanger from "../shared/ThemeChanger/ThemeChanger";
 
 
 const SavedCodeEditor = ({ editingIndex, setEditedCode, setEditingIndex, setSavedCodes, savedCodes, setChildAction, childAction, onChange, language, extension, theme, fontSize }) => {
 
     const { index } = useParams();
+    const [daisyTheme, setDaisyTheme] = useState('');
     const navigate = useNavigate();
     const codes = JSON.parse(localStorage.getItem('savedCodes')) || [];
     const code = codes[index].code;
@@ -110,13 +112,19 @@ const SavedCodeEditor = ({ editingIndex, setEditedCode, setEditingIndex, setSave
             progress: undefined,
             onClose: () => navigate('/saved-codes')
         });
-        
+
     };
 
+    const closeModal = () => {
+        setModalOpen(false);
+        setEditingIndex(null);
+        setEditedCode('');
+    }
 
     return (
         <>
             <NavbarComponent openModal={openModal} />
+            <ThemeChanger isModalOpen={isModalOpen} closeModal={closeModal} daisyTheme={daisyTheme} setDaisyTheme={setDaisyTheme} />
             <ToastContainer
                 position="top-right"
                 autoClose={2000}

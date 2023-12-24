@@ -17,7 +17,7 @@ const SavedCodes = () => {
     const [editedCode, setEditedCode] = useState('');
     // Pagination state
     const [currentPage, setCurrentPage] = useState(1);
-    const [itemsPerPage, setItemsPerPage] = useState(2);
+    const [itemsPerPage, setItemsPerPage] = useState(7);
     const [totalItems, setTotalItems] = useState(0); // Initialize with 0, update later
 
     const openModal = () => {
@@ -64,7 +64,7 @@ const SavedCodes = () => {
     };
 
     return (
-        <div>
+        <div className="h-full">
             <NavbarComponent openModal={openModal} />
             <ThemeChanger isModalOpen={isModalOpen} closeModal={closeModal} daisyTheme={daisyTheme} setDaisyTheme={setDaisyTheme} />
             <ToastContainer
@@ -147,8 +147,9 @@ const SavedCodes = () => {
                         currentPage={currentPage}
                         setCurrentPage={setCurrentPage}
                         setItemsPerPage={setItemsPerPage}
-                        color="red"
-                        possibleLimits={[2, 4, 6]}
+                        possibleLimits={[7]}
+                        color="MediumSlateBlue"
+
                     />
                 </div>
             </div>

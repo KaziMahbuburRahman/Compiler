@@ -1,11 +1,11 @@
 1. Need to add icons instead of img/text in savedCodeEditor and CodeEditorWindow
 2. Added a Cancel/Back button beside Update button in the savedCodeEditor
 3. used active instead of hover to make button more realistic
-4. add themeChanger to the savedCodeEditor
+4. added themeChanger to the savedCodeEditor
 5. add Edit, Delete toast to savedCodes
 6. added toast and navigated to savedCodes from savedCodeEditor after updating the code
 7. Added white color to editor copy and download button
-9. Added Pagination to savedCodes
+9. Added rc-paginate to savedCodes
 10. add code.outputDetails to savedCodeEditor 
 //hint
                                      {code.outputDetails && (
@@ -15,3 +15,5 @@
                                             <p>Memory: {code.outputDetails.memory}</p>
                                         </div>
                                     )}
+
+11. Make rc-paginate responsive                               
