@@ -61,7 +61,7 @@ const SavedCodes = () => {
     };
 
     return (
-        <div className="h-full">
+        <div>
             <NavbarComponent openModal={openModal} />
             <ThemeChanger isModalOpen={isModalOpen} closeModal={closeModal} daisyTheme={daisyTheme} setDaisyTheme={setDaisyTheme} />
             <ToastContainer
@@ -75,7 +75,7 @@ const SavedCodes = () => {
                 draggable
                 pauseOnHover
             />
-            <div className="mx-6 my-10 pt-3">
+            <div className="mx-6 my-10 pt-3 h-screen">
                 <h1 className="text-4xl font-bold mb-8 mt-8">Saved Codes</h1>
                 {savedCodes.length > 0 ? (
                     <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
