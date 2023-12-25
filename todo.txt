@@ -23,3 +23,4 @@
 15. Add code share option using LocalStorage or the url only
 16. Add SEO and Adsense like TechHelpBD BTEB Result
 17. changed the favicon
+18. added toast after sending message from contact page

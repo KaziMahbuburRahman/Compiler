@@ -4,14 +4,15 @@ import emailjs from '@emailjs/browser';
 import { NavbarComponent } from '../NavbarComponent';
 import Footer from '../Footer';
 import ThemeChanger from '../../shared/ThemeChanger/ThemeChanger';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Contact = () => {
     const [isModalOpen, setModalOpen] = useState(false);
     const openModal = () => {
-      setModalOpen(true);
+        setModalOpen(true);
     }
     const closeModal = () => {
-      setModalOpen(false);
+        setModalOpen(false);
     }
     const [daisyTheme, setDaisyTheme] = useState('');
 
@@ -24,12 +25,37 @@ const Contact = () => {
             }, (error) => {
                 console.log(error.text);
             });
+
+        toast.success("Thanks for your Feedback!", {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+
+        form.current.reset();
     };
-    
+
     return (
         <>
             <NavbarComponent openModal={openModal} />
-      <ThemeChanger isModalOpen={isModalOpen} closeModal={closeModal} daisyTheme={daisyTheme} setDaisyTheme={setDaisyTheme} />
+            <ThemeChanger isModalOpen={isModalOpen} closeModal={closeModal} daisyTheme={daisyTheme} setDaisyTheme={setDaisyTheme} />
+
+            <ToastContainer
+                position="top-right"
+                autoClose={2000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
+
             <div className="bg-no-repeat bg-cover contact-container bg-black bg-blend-darken">
                 <div className="h-[100vh] bg-img-overlay pt-12 pb-20">
                     <div className="text-center text-white py-12 space-y-2 ">
