@@ -21,3 +21,5 @@
 13. Add code share option using LocalStorage only
 14. sorted savedCodes by date
 15. Add code share option using LocalStorage or the url only
+16. Add SEO and Adsense like TechHelpBD BTEB Result
+17. changed the favicon
