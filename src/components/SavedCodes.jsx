@@ -33,6 +33,8 @@ const SavedCodes = () => {
 
     useEffect(() => {
         const codes = JSON.parse(localStorage.getItem("savedCodes")) || [];
+        // Sort codes by date (timestamp)
+        codes.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
         setSavedCodes(codes);
         setTotalItems(codes.length)
     }, []);
@@ -75,7 +77,7 @@ const SavedCodes = () => {
                 draggable
                 pauseOnHover
             />
-            <div className="mx-6 my-10 pt-3 h-screen">
+            <div className="mx-6 my-10 pt-3 h-full">
                 <h1 className="text-4xl font-bold mb-8 mt-8">Saved Codes</h1>
                 {savedCodes.length > 0 ? (
                     <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
