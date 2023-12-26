@@ -24,3 +24,5 @@
 16. Add SEO and Adsense like TechHelpBD BTEB Result
 17. changed the favicon
 18. added toast after sending message from contact page
+19. fix code download option in savedCodeEditor
+20. added required to all input fields of contact page

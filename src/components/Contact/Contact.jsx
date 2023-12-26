@@ -68,6 +68,7 @@ const Contact = () => {
                         <form ref={form} onSubmit={sendEmail} className="lg:w-1/2 space-y-2 p-5 bg-base-100 rounded-lg">
 
                             <input
+                                required
                                 type="text"
                                 name="from_name"
                                 placeholder='Enter your name'
@@ -77,6 +78,7 @@ const Contact = () => {
 
 
                             <input
+                                required
                                 type="email"
                                 name="user_email"
                                 placeholder='Enter your email'
@@ -85,6 +87,7 @@ const Contact = () => {
 
 
                             <input
+                                required
                                 type="text"
                                 name="mail_subject"
                                 placeholder='Enter your Subject'
