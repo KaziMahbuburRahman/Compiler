@@ -47,7 +47,7 @@ const Landing = () => {
   }
 
   const handleSaveCode = (e) => {
-    e.preventDefault();
+    e.stopPropagation() 
     const savedCodes = JSON.parse(localStorage.getItem("savedCodes")) || [];
 
     const newCode = {
