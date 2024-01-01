@@ -67,6 +67,7 @@ const CodeEditorWindow = ({ onChange, language, extension, code, theme, fontSize
         
         options={{
           fontSize: fontSize,
+          suggest: !isMobile,
           quickSuggestions: !isMobile,
           suggestOnTriggerCharacters: !isMobile,
           scrollbar: {
