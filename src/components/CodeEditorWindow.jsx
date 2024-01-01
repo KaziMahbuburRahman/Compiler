@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import DownloadCode from "./DownloadCode";
 import { on } from "events";
 import Copy from "../assets/svg/Copy";
-
+const isMobile = window.innerWidth < 768;
 
 const CodeEditorWindow = ({ onChange, language, extension, code, theme, fontSize }) => {
   const [value, setValue] = useState(code || "");
@@ -62,6 +62,7 @@ const CodeEditorWindow = ({ onChange, language, extension, code, theme, fontSize
         language={language || "javascript"}
         value={value}
         theme={theme}
+        quickSuggestions={!isMobile}
         options={{
           fontSize: fontSize,
           scrollbar: {
