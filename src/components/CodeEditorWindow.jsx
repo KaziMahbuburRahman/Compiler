@@ -62,9 +62,13 @@ const CodeEditorWindow = ({ onChange, language, extension, code, theme, fontSize
         language={language || "javascript"}
         value={value}
         theme={theme}
-        quickSuggestions={!isMobile}
+        //disable auto suggestions on monaco editor react
+
+        
         options={{
           fontSize: fontSize,
+          quickSuggestions: !isMobile,
+          suggestOnTriggerCharacters: !isMobile,
           scrollbar: {
             alwaysConsumeMouseWheel: false,
           },

@@ -26,3 +26,4 @@
 18. added toast after sending message from contact page
 19. fix code download option in savedCodeEditor (*)
 20. added required to all input fields of contact page
+21. hide auto suggest in codeEditor for mobile
