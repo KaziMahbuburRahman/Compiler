@@ -1,27 +1,24 @@
 import React, { useState, useEffect } from "react";
-
-import Editor from "@monaco-editor/react";
+import AceEditor from "react-ace";
+import "ace-builds/src-noconflict/mode-javascript";
+import "ace-builds/src-noconflict/theme-monokai";
+import "ace-builds/src-noconflict/ext-language_tools";
 import { toast } from "react-toastify";
 import DownloadCode from "./DownloadCode";
-import { on } from "events";
 import Copy from "../assets/svg/Copy";
+
 const isMobile = window.innerWidth < 768;
 
 const CodeEditorWindow = ({ onChange, language, extension, code, theme, fontSize }) => {
   const [value, setValue] = useState(code || "");
 
   useEffect(() => {
-
     setValue(code || "");
-
   }, [language]);
 
-  console.log(onChange)
-
-  const handleEditorChange = (value) => {
-    console.log("value changed", value)
-    setValue(value);
-    onChange("code", value);
+  const handleEditorChange = (newValue) => {
+    setValue(newValue);
+    onChange("code", newValue);
   };
 
   const handleCopyToClipboard = () => {
@@ -43,10 +40,7 @@ const CodeEditorWindow = ({ onChange, language, extension, code, theme, fontSize
         <h1 className="text-xl font-bold text-white">Code Editor</h1>
 
         <div className="flex justify-center items-center gap-2">
-          <DownloadCode
-            code={code}
-            lang_extension={extension}
-          />
+          <DownloadCode code={code} lang_extension={extension} />
 
           <button
             className="text-white active:text-blue-500 transition duration-200 active:scale-90"
@@ -56,25 +50,21 @@ const CodeEditorWindow = ({ onChange, language, extension, code, theme, fontSize
           </button>
         </div>
       </div>
-      <Editor
+      <AceEditor
         className="h-[35vh] lg:h-[75vh]"
-        width={`100%`}
-        language={language || "javascript"}
+        mode={language || "javascript"}
+        theme={theme || "monokai"}
+        width="100%"
+        fontSize={fontSize}
         value={value}
-        theme={theme}
-        //disable auto suggestions on monaco editor react
-
-        
-        options={{
-          fontSize: fontSize,
-          suggest: !isMobile,
-          quickSuggestions: !isMobile,
-          suggestOnTriggerCharacters: !isMobile,
-          scrollbar: {
-            alwaysConsumeMouseWheel: false,
-          },
+        editorProps={{ $blockScrolling: Infinity }}
+        setOptions={{
+          enableBasicAutocompletion: true,
+          enableLiveAutocompletion: true,
+          enableSnippets: true,
+          showLineNumbers: true,
+          tabSize: 2,
         }}
-        defaultValue="// some comment"
         onChange={handleEditorChange}
       />
     </div>
