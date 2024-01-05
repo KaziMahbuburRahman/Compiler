@@ -27,27 +27,28 @@ const Landing = () => {
   const [customInput, setCustomInput] = useState("");
   const [outputDetails, setOutputDetails] = useState(null);
   const [processing, setProcessing] = useState(null);
-  const [theme, setTheme] = useState("cobalt");
+  const [theme, setTheme] = useState("monokai");
+  const [themeValue, setThemeValue] = useState("monokai");
   const [language, setLanguage] = useState(languageOptions[0]);
   const [code, setCode] = useState(language.boilerplate);
   const [title, setTitle] = useState("");
-  const [fontSize, setFontSize] = useState(null);
+  const [fontSize, setFontSize] = useState(14);
   const enterPress = useKeyPress("Enter");
   const ctrlPress = useKeyPress("Control");
 
   function formatTimestamp(inputTimestamp) {
     // Parse input timestamp
     const timestamp = new Date(inputTimestamp);
-  
+
     // Format output timestamp
     const options = { month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true };
     const outputTimestamp = timestamp.toLocaleString('en-US', options);
-  
+
     return outputTimestamp;
   }
 
   const handleSaveCode = (e) => {
-    e.stopPropagation() 
+    e.stopPropagation()
     const savedCodes = JSON.parse(localStorage.getItem("savedCodes")) || [];
 
     const newCode = {
@@ -80,7 +81,7 @@ const Landing = () => {
 
     // console.log("code...", code);
   }, [ctrlPress, enterPress]);
-  
+
   const onChange = (action, data) => {
     switch (action) {
       case "code": {
@@ -179,17 +180,22 @@ const Landing = () => {
     const theme = th;
     console.log("theme...", theme);
 
-    if (["light", "vs-dark"].includes(theme.value)) {
-      setTheme(theme);
+    if (theme.value) {
+      // setTheme(theme);
+      //setTheme in ace editor
+      setTheme(theme.value);
+      setThemeValue(theme.value);
+      console.log("Theme set done...", theme.value);
     } else {
-      defineTheme(theme.value).then((_) => setTheme(theme));
+      console.log("theme.value", theme.value);
+      // defineTheme(theme.value).then((_) => setTheme(theme));
     }
   }
-  useEffect(() => {
-    defineTheme("oceanic-next").then((_) =>
-      setTheme({ value: "oceanic-next", label: "Oceanic Next" })
-    );
-  }, []);
+  // useEffect(() => {
+  //   defineTheme("oceanic-next").then((_) =>
+  //     setTheme({ value: "oceanic-next", label: "Oceanic Next" })
+  //   );
+  // }, []);
 
   const showSuccessToast = (msg) => {
     toast.success(msg || `Compiled Successfully!`, {
@@ -257,9 +263,10 @@ const Landing = () => {
               onChange={onChange}
               language={language?.value}
               extension={language?.extension}
-              theme={theme.value}
+              theme={theme}
               fontSize={fontSize}
               setLanguage={setLanguage}
+              themeValue={themeValue}
             />
           </div>
 

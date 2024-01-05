@@ -1,17 +1,27 @@
 import React, { useState, useEffect } from "react";
 import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/mode-javascript";
-import "ace-builds/src-noconflict/theme-monokai";
 import "ace-builds/src-noconflict/ext-language_tools";
 import { toast } from "react-toastify";
 import DownloadCode from "./DownloadCode";
 import Copy from "../assets/svg/Copy";
 
-const isMobile = window.innerWidth < 768;
+// acethemes
+import "ace-builds/src-noconflict/theme-monokai";
+import "ace-builds/src-noconflict/theme-github";
+import "ace-builds/src-noconflict/theme-tomorrow";
+import "ace-builds/src-noconflict/theme-kuroir";
+import "ace-builds/src-noconflict/theme-twilight";
+import "ace-builds/src-noconflict/theme-xcode";
+import "ace-builds/src-noconflict/theme-textmate";
+import "ace-builds/src-noconflict/theme-solarized_dark";
+import "ace-builds/src-noconflict/theme-solarized_light";
+import "ace-builds/src-noconflict/theme-terminal";
 
-const CodeEditorWindow = ({ onChange, language, extension, code, theme, fontSize }) => {
+
+const CodeEditorWindow = ({ onChange, language, extension, code, themeValue, fontSize }) => {
   const [value, setValue] = useState(code || "");
-
+  // const themeValue = theme?.value || "monokai";
   useEffect(() => {
     setValue(code || "");
   }, [language]);
@@ -19,6 +29,7 @@ const CodeEditorWindow = ({ onChange, language, extension, code, theme, fontSize
   const handleEditorChange = (newValue) => {
     setValue(newValue);
     onChange("code", newValue);
+    console.log("theme", themeValue);
   };
 
   const handleCopyToClipboard = () => {
@@ -53,10 +64,11 @@ const CodeEditorWindow = ({ onChange, language, extension, code, theme, fontSize
       <AceEditor
         className="h-[35vh] lg:h-[75vh]"
         mode={language || "javascript"}
-        theme={theme || "monokai"}
+        theme={themeValue || "monokai"}
         width="100%"
-        fontSize={fontSize}
+        fontSize={fontSize || 14}
         value={value}
+        // setTheme={themeValue || "monokai"}
         editorProps={{ $blockScrolling: Infinity }}
         setOptions={{
           enableBasicAutocompletion: true,
