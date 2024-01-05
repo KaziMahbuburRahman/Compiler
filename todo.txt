@@ -28,3 +28,4 @@
 20. added required to all input fields of contact page
 21. hide auto suggest in codeEditor for mobile
 22. migrated to ace editor from monaco-editor
+23. added react ace editor themechange functionality
