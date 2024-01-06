@@ -17,6 +17,7 @@ import "ace-builds/src-noconflict/theme-textmate";
 import "ace-builds/src-noconflict/theme-solarized_dark";
 import "ace-builds/src-noconflict/theme-solarized_light";
 import "ace-builds/src-noconflict/theme-terminal";
+import Print from "../assets/svg/Print";
 
 
 const CodeEditorWindow = ({ onChange, language, extension, code, themeValue, fontSize }) => {
@@ -58,6 +59,12 @@ const CodeEditorWindow = ({ onChange, language, extension, code, themeValue, fon
             onClick={handleCopyToClipboard}
           >
             <Copy />
+          </button>
+          <button
+            className="text-white active:text-blue-500 transition duration-200 active:scale-90"
+            onClick={()=>window.print()}
+          >
+            <Print />
           </button>
         </div>
       </div>
