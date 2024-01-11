@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-
+// import { starfall } from 'starfall-animation/lib/index.ts'
+// import 'starfall-animation/lib/index.css'
 import Editor from "@monaco-editor/react";
 import { ToastContainer, toast } from "react-toastify";
 import DownloadCode from "./DownloadCode";
@@ -32,6 +33,11 @@ const SavedCodeEditor = ({ editingIndex, setEditedCode, setEditingIndex, setSave
     const openModal = () => {
         setModalOpen(true);
     }
+
+    // useEffect(() => {
+    //     starfall();
+    // }, []);
+
     // console.log("codes from savedcodeEditor", codes);
 
     //code from index
@@ -136,7 +142,12 @@ const SavedCodeEditor = ({ editingIndex, setEditedCode, setEditingIndex, setSave
                 draggable
                 pauseOnHover
             />
+
             <div className="h-4 w-full bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500"></div>
+            {/* <div style={{ height: '20px', width: '100%', background: 'linear-gradient(145deg, rgb(119, 46, 195), rgb(58, 18, 153))', }} id="starfall"> */}
+            {/* <div style={{ height: '20px'}} className=" w-full bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500" id="starfall">
+
+            </div> */}
 
 
             <div className="flex justify-center items-center flex-col bg-[#171212]">
