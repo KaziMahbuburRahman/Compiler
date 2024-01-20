@@ -27,7 +27,7 @@ const CodeEditorWindow = ({ onChange, language, extension, code, themeValue, fon
     setValue(code || "");
   }, [language]);
 
-  const handleEditorChange = (newValue) => {
+  const handleEditorChange = (newValue) => {    
     setValue(newValue);
     onChange("code", newValue);
     console.log("theme", themeValue);

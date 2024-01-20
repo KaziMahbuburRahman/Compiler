@@ -54,13 +54,17 @@ const Landing = () => {
     const newCode = {
       code,
       language: language.value,
+      extension: language.extension,
       title: title,
       timestamp: formatTimestamp(Date.now()),
       outputDetails: outputDetails, // add outputDetails property
     };
 
-    savedCodes.push(newCode);
+    savedCodes.push(newCode)
+         // Sort codes by date (timestamp)
+    savedCodes.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
     localStorage.setItem("savedCodes", JSON.stringify(savedCodes));
+
     //clear the input field
     setTitle("");
     showSuccessToast("Code saved successfully!");

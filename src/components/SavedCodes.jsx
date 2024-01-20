@@ -33,8 +33,6 @@ const SavedCodes = () => {
 
     useEffect(() => {
         const codes = JSON.parse(localStorage.getItem("savedCodes")) || [];
-        // Sort codes by date (timestamp)
-        codes.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
         setSavedCodes(codes);
         setTotalItems(codes.length)
     }, []);

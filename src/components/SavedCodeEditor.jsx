@@ -19,21 +19,24 @@ import Copy from "../assets/svg/Copy";
 import ThemeChanger from "../shared/ThemeChanger/ThemeChanger";
 
 
-const SavedCodeEditor = ({ editingIndex, setEditedCode, setEditingIndex, setSavedCodes, savedCodes, setChildAction, childAction, onChange, language, extension, theme, fontSize }) => {
+const SavedCodeEditor = ({ editingIndex, setEditedCode, setEditingIndex, setSavedCodes, savedCodes, setChildAction, childAction, onChange, language, theme, fontSize }) => {
 
     const { index } = useParams();
     const [daisyTheme, setDaisyTheme] = useState('');
     const navigate = useNavigate();
     const codes = JSON.parse(localStorage.getItem('savedCodes')) || [];
     const code = codes[index].code;
+    const extension = codes[index].extension;
     const initialTitle = codes[index].title;
     const [title, setTitle] = useState(initialTitle || '');
     const [value, setValue] = useState(code || "");
     const [isModalOpen, setModalOpen] = useState(false);
+
     const openModal = () => {
         setModalOpen(true);
     }
 
+    console.log("extension is", codes[index]);
     // useEffect(() => {
     //     starfall();
     // }, []);
@@ -126,7 +129,7 @@ const SavedCodeEditor = ({ editingIndex, setEditedCode, setEditingIndex, setSave
         setEditingIndex(null);
         setEditedCode('');
     }
-
+    console.log(codes)
     return (
         <>
             <NavbarComponent openModal={openModal} />
