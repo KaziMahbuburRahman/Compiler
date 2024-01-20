@@ -31,3 +31,4 @@
 23. added react ace editor themechange functionality
 24. added print option in CodeEditorWindow
 25. increased z-index of LanguagesDropdown
+26. added print option in savedCodeEditor

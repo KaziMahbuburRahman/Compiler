@@ -17,6 +17,7 @@ import { NavbarComponent } from "./NavbarComponent";
 import Footer from "./Footer";
 import Copy from "../assets/svg/Copy";
 import ThemeChanger from "../shared/ThemeChanger/ThemeChanger";
+import Print from "../assets/svg/Print";
 
 
 const SavedCodeEditor = ({ editingIndex, setEditedCode, setEditingIndex, setSavedCodes, savedCodes, setChildAction, childAction, onChange, language, theme, fontSize }) => {
@@ -169,6 +170,13 @@ const SavedCodeEditor = ({ editingIndex, setEditedCode, setEditingIndex, setSave
                                 onClick={handleCopyToClipboard}
                             >
                                 <Copy />
+                            </button>
+
+                            <button
+                                className="text-white active:text-blue-500 transition duration-200 active:scale-90"
+                                onClick={() => window.print()}
+                            >
+                                <Print />
                             </button>
                         </div>
                     </div>
