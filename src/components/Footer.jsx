@@ -7,11 +7,16 @@ const Footer = () => {
         <BackToUp>Top</BackToUp>
         <div>
 
-          <p>
-            Welcome to our BTEB Result Web App Powered by Tech Help BD! <br />
-            Here, You can check all the latest Polytechnic Results, CGPA Calculator <br /> and information about Bangladesh Technical Education Board (BTEB) examinations Online. <br />
+          <p className='max-w-[26rem]'>
+            Welcome to the Tech Help BD Compiler! <br /> <br />
+            We are excited to provide you with a user-friendly online platform to compile your code. Our compiler supports various programming languages including C, C++, Java, Python, and more. <br />
             <br />
-            This website is built with modern technologies like React and Search Algorithm <br /> to provide you the best experience.
+
+            Please feel free to provide any feedback to help us improve your experience. <br /> <br />
+
+            - Tech Help BD Compiler Team
+
+
           </p>
         </div>
         <div>
