@@ -32,3 +32,4 @@
 24. added print option in CodeEditorWindow
 25. increased z-index of LanguagesDropdown
 26. added print option in savedCodeEditor
+27. add preloader to all components
