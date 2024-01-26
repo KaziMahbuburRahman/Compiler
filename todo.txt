@@ -33,4 +33,4 @@
 25. increased z-index of LanguagesDropdown
 26. added print option in savedCodeEditor
 27. added preloader to all components
-28. need to fix home page frequent render/preloader issue
+28. fixed unnecessary render/preloader issue using react router
