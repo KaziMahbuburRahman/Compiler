@@ -7,7 +7,7 @@ import ThemeChanger from '../shared/ThemeChanger/ThemeChanger';
 import Preloader from '../components/Preloader';
 
 const Root = () => {
-  const [loading, setLoading] = useState(false);
+
   const [isModalOpen, setModalOpen] = useState(false);
   const openModal = () => {
     setModalOpen(true);
@@ -17,20 +17,10 @@ const Root = () => {
   }
   const [daisyTheme, setDaisyTheme] = useState('');
 
-  useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-  }, []);
+
 
   return (
-    <>
-      {
-        loading ? (
-          <Preloader />
-        ) :
-          (
+
             <div> <>
               <NavbarComponent openModal={openModal} />
               <ThemeChanger isModalOpen={isModalOpen} closeModal={closeModal} daisyTheme={daisyTheme} setDaisyTheme={setDaisyTheme} />
@@ -39,9 +29,6 @@ const Root = () => {
               <Footer />
             </>
             </div>
-          )
-      }
-    </>
 
   )
 }

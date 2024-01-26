@@ -48,7 +48,8 @@ const Landing = () => {
   }
 
   const handleSaveCode = (e) => {
-    e.stopPropagation()
+    // e.stopPropagation()
+    e.preventDefault();
     const savedCodes = JSON.parse(localStorage.getItem("savedCodes")) || [];
 
     const newCode = {
@@ -61,7 +62,7 @@ const Landing = () => {
     };
 
     savedCodes.push(newCode)
-         // Sort codes by date (timestamp)
+    // Sort codes by date (timestamp)
     savedCodes.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
     localStorage.setItem("savedCodes", JSON.stringify(savedCodes));
 
