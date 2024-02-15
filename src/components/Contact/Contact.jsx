@@ -3,7 +3,7 @@ import './Contact.css'
 import emailjs from '@emailjs/browser';
 import { NavbarComponent } from '../NavbarComponent';
 import Footer from '../Footer';
-import ThemeChanger from '../../shared/ThemeChanger/ThemeChanger';
+// import ThemeChanger from '../../shared/ThemeChanger/ThemeChanger';
 import { ToastContainer, toast } from 'react-toastify';
 
 const Contact = () => {
@@ -42,8 +42,6 @@ const Contact = () => {
     return (
         <>
             <NavbarComponent openModal={openModal} />
-            <ThemeChanger isModalOpen={isModalOpen} closeModal={closeModal} daisyTheme={daisyTheme} setDaisyTheme={setDaisyTheme} />
-
             <ToastContainer
                 position="top-right"
                 autoClose={2000}

@@ -3,7 +3,7 @@ import { NavbarComponent } from '../components/NavbarComponent'
 import Landing from '../components/Landing'
 import Footer from '../components/Footer'
 
-import ThemeChanger from '../shared/ThemeChanger/ThemeChanger';
+
 import Preloader from '../components/Preloader';
 
 const Root = () => {
@@ -23,7 +23,6 @@ const Root = () => {
 
             <div> <>
               <NavbarComponent openModal={openModal} />
-              <ThemeChanger isModalOpen={isModalOpen} closeModal={closeModal} daisyTheme={daisyTheme} setDaisyTheme={setDaisyTheme} />
               <Landing />
 
               <Footer />

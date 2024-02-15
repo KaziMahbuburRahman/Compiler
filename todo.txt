@@ -1,7 +1,7 @@
 1. Need to add icons instead of img/text in savedCodeEditor and CodeEditorWindow
 2. Added a Cancel/Back button beside Update button in the savedCodeEditor
 3. used active instead of hover to make button more realistic
-4. added themeChanger to the savedCodeEditor
+4. removed themeChanger from savedCodeEditor
 5. added confirmation Delete Modal to savedCodes
 6. added toast and navigated to savedCodes from savedCodeEditor after updating the code
 7. Added white color to editor copy and download button

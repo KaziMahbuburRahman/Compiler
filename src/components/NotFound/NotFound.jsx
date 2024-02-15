@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import not_found from "../../assets/images/404.png";
 import { NavbarComponent } from "../NavbarComponent";
-import ThemeChanger from "../../shared/ThemeChanger/ThemeChanger";
-
 const NotFound = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const openModal = () => {
@@ -17,7 +15,6 @@ const NotFound = () => {
   return (
    <>
    <NavbarComponent openModal={openModal} />
-      <ThemeChanger isModalOpen={isModalOpen} closeModal={closeModal} daisyTheme={daisyTheme} setDaisyTheme={setDaisyTheme} />
     <div className="flex flex-col justify-center items-center h-screen bg-transparent">
         
         <img src={not_found} alt="" />

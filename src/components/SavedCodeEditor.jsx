@@ -16,7 +16,7 @@ import CustomInput from "./CustomInput";
 import { NavbarComponent } from "./NavbarComponent";
 import Footer from "./Footer";
 // import Copy from "../assets/svg/Copy";
-import ThemeChanger from "../shared/ThemeChanger/ThemeChanger";
+// import ThemeChanger from "../shared/ThemeChanger/ThemeChanger";
 // import Print from "../assets/svg/Print";
 import Print from '../icons/Print';
 import Copy from '../icons/Copy';
@@ -134,8 +134,7 @@ const SavedCodeEditor = ({ editingIndex, setEditedCode, setEditingIndex, setSave
     console.log(codes)
     return (
         <>
-            <NavbarComponent openModal={openModal} />
-            <ThemeChanger isModalOpen={isModalOpen} closeModal={closeModal} daisyTheme={daisyTheme} setDaisyTheme={setDaisyTheme} />
+            <NavbarComponent />
             <ToastContainer
                 position="top-right"
                 autoClose={2000}

@@ -18,7 +18,6 @@ import ThemeDropdown from "./ThemeDropdown";
 import LanguagesDropdown from "./LanguagesDropdown";
 import { NavbarComponent } from "./NavbarComponent";
 import FontSizeDropdown from "./FontSizeDropdown";
-import ThemeChanger from "../shared/ThemeChanger/ThemeChanger";
 
 
 
