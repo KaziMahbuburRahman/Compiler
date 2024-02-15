@@ -60,7 +60,7 @@ const SavedCodes = () => {
 
     return (
         <div>
-            <NavbarComponent openModal={openModal} />
+            <NavbarComponent />
             <ToastContainer
                 position="top-right"
                 autoClose={2000}

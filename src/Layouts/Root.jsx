@@ -10,13 +10,13 @@ const Root = () => {
 
   return (
 
-            <div> <>
-              <NavbarComponent openModal={openModal} />
-              <Landing />
+    <div> <>
+      <NavbarComponent />
+      <Landing />
 
-              <Footer />
-            </>
-            </div>
+      <Footer />
+    </>
+    </div>
 
   )
 }

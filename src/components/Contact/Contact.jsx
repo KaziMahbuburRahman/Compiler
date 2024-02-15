@@ -7,7 +7,7 @@ import Footer from '../Footer';
 import { ToastContainer, toast } from 'react-toastify';
 
 const Contact = () => {
-  
+
 
     const form = useRef(null);
     const sendEmail = (e) => {
@@ -34,7 +34,7 @@ const Contact = () => {
 
     return (
         <>
-            <NavbarComponent openModal={openModal} />
+            <NavbarComponent />
             <ToastContainer
                 position="top-right"
                 autoClose={2000}
