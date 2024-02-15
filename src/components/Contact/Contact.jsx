@@ -7,14 +7,7 @@ import Footer from '../Footer';
 import { ToastContainer, toast } from 'react-toastify';
 
 const Contact = () => {
-    const [isModalOpen, setModalOpen] = useState(false);
-    const openModal = () => {
-        setModalOpen(true);
-    }
-    const closeModal = () => {
-        setModalOpen(false);
-    }
-    const [daisyTheme, setDaisyTheme] = useState('');
+  
 
     const form = useRef(null);
     const sendEmail = (e) => {

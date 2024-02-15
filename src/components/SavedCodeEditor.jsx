@@ -32,11 +32,6 @@ const SavedCodeEditor = ({ editingIndex, setEditedCode, setEditingIndex, setSave
     const initialTitle = codes[index].title;
     const [title, setTitle] = useState(initialTitle || '');
     const [value, setValue] = useState(code || "");
-    const [isModalOpen, setModalOpen] = useState(false);
-
-    const openModal = () => {
-        setModalOpen(true);
-    }
 
     console.log("extension is", codes[index]);
     // useEffect(() => {

@@ -8,17 +8,6 @@ import Preloader from '../components/Preloader';
 
 const Root = () => {
 
-  const [isModalOpen, setModalOpen] = useState(false);
-  const openModal = () => {
-    setModalOpen(true);
-  }
-  const closeModal = () => {
-    setModalOpen(false);
-  }
-  const [daisyTheme, setDaisyTheme] = useState('');
-
-
-
   return (
 
             <div> <>

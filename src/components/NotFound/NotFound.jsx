@@ -3,13 +3,7 @@ import { useNavigate } from "react-router-dom";
 import not_found from "../../assets/images/404.png";
 import { NavbarComponent } from "../NavbarComponent";
 const NotFound = () => {
-  const [isModalOpen, setModalOpen] = useState(false);
-  const openModal = () => {
-    setModalOpen(true);
-  }
-  const closeModal = () => {
-    setModalOpen(false);
-  }
+
   const [daisyTheme, setDaisyTheme] = useState('');
   const navigate = useNavigate();
   return (

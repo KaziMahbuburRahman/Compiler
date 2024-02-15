@@ -10,7 +10,7 @@ const SavedCodes = () => {
     const navigate = useNavigate();
     const [childAction, setChildAction] = useState(false);
     const [savedCodes, setSavedCodes] = useState([]);
-    const [isModalOpen, setModalOpen] = useState(false);
+
     const [currentIndex, setCurrentIndex] = useState(null);
     const [editedCode, setEditedCode] = useState('');
     // Pagination state
@@ -19,9 +19,7 @@ const SavedCodes = () => {
     const [totalItems, setTotalItems] = useState(0); // Initialize with 0, update later
     //delete code state
     const [deleteCode, setDeleteCode] = useState(false);
-    const openModal = () => {
-        setModalOpen(true);
-    }
+
     //I will remove unnecessary code later
     const closeModal = () => {
         setModalOpen(false);
