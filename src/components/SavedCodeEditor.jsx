@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 // import { starfall } from 'starfall-animation/lib/index.ts'
 // import 'starfall-animation/lib/index.css'
-import Editor from "@monaco-editor/react";
+import AceEditor from "react-ace";
+// import Editor from aceBuilds;
 import { ToastContainer, toast } from "react-toastify";
 import DownloadCode from "./DownloadCode";
 import { on } from "events";
@@ -20,8 +21,9 @@ import Footer from "./Footer";
 // import Print from "../assets/svg/Print";
 import Print from '../icons/Print';
 import Copy from '../icons/Copy';
+import ace from "react-ace";
 
-const SavedCodeEditor = ({ editingIndex, setEditedCode, setEditingIndex, setSavedCodes, savedCodes, setChildAction, childAction, onChange, language, theme, fontSize }) => {
+const SavedCodeEditor = ({ editingIndex, setSavedCodes, savedCodes, setChildAction, childAction, onChange, language, theme, fontSize }) => {
 
     const { index } = useParams();
     const [daisyTheme, setDaisyTheme] = useState('');
@@ -121,11 +123,6 @@ const SavedCodeEditor = ({ editingIndex, setEditedCode, setEditingIndex, setSave
 
     };
 
-    const closeModal = () => {
-        setModalOpen(false);
-        setEditingIndex(null);
-        setEditedCode('');
-    }
     console.log(codes)
     return (
         <>
@@ -175,17 +172,20 @@ const SavedCodeEditor = ({ editingIndex, setEditedCode, setEditingIndex, setSave
                             </button>
                         </div>
                     </div>
-                    <Editor
+                    <AceEditor
                         className="h-[35vh] lg:h-[75vh]"
                         width={`100%`}
-                        language={language || "javascript"}
+                        mode={language || "javascript"}
+                        theme={"monokai"}
+                        fontSize={fontSize || 14}
                         value={value}
-                        theme={theme}
-                        options={{
-                            fontSize: fontSize,
-                            scrollbar: {
-                                alwaysConsumeMouseWheel: false,
-                            },
+                        editorProps={{ $blockScrolling: Infinity }}
+                        setOptions={{
+                            enableBasicAutocompletion: true,
+                            enableLiveAutocompletion: true,
+                            enableSnippets: true,
+                            showLineNumbers: true,
+                            tabSize: 2,
                         }}
                         defaultValue={codes[index].code}
                         onChange={handleEditorChange}
@@ -204,10 +204,10 @@ const SavedCodeEditor = ({ editingIndex, setEditedCode, setEditingIndex, setSave
 
                             />
                             <button type="submit" className={`
-                                "w-auto text-white bg-purple-600 border-2 border-purple-600 z-10 rounded-md shadow-md px-2 py-2 active:bg-purple-700 active:scale-90 transition duration-200",
-                                "mt-2 ml-4", // adjust the margin values to match the other elements
-                                ${!value ? "opacity-50 cursor-not-allowed" : ""}
-                            `}
+                             "w-auto text-white bg-purple-600 border-2 border-purple-600 z-10 rounded-md shadow-md px-2 py-2 active:bg-purple-700 active:scale-90 transition duration-200",
+                             "mt-2 ml-4", // adjust the margin values to match the other elements
+                             ${!value ? "opacity-50 cursor-not-allowed" : ""}
+                         `}
                                 disabled={!value}
                             >
                                 Update
@@ -219,6 +219,7 @@ const SavedCodeEditor = ({ editingIndex, setEditedCode, setEditingIndex, setSave
                 </div>
 
             </div>
+
 
             {/* save button */}
 
