@@ -107,17 +107,20 @@ export const NavbarComponent = () => {
                     </Link>
                   </li>
                   <li role="none" className="flex items-stretch">
-                    <a
-                      href="https://techhelpbd.com"
-                      target='blank'
+                    <Link to="/saved-codes"
                       role="menuitem"
-                      aria-current="page"
                       aria-haspopup="false"
-                      className="lg:shadow flex items-center gap-2 lg:py-2 lg:px-4 transition duration-300 active:scale-90 lg:rounded-md lg:mx-5 my-1"
+                      className={
+                        currentPath === '/saved-codes' || currentPath === '/contact/' ? "text-sky-500 lg:text-white lg:bg-sky-500 flex items-center gap-2 py-4 transition-colors duration-300 focus:outline-none focus-visible:outline-none lg:py-2 lg:px-3   lg:rounded-md lg:mx-5 my-1"
+
+                          :
+
+                          "lg:shadow flex items-center py-4 lg:px-3 lg:py-2 transition duration-300 active:scale-90 lg:rounded-md lg:mx-5 my-1"
+                      }
 
                     >
-                      <span>Blog</span>
-                    </a>
+                      <span>Saved Codes</span>
+                    </Link>
                   </li>
                   <li role="none" className="flex items-stretch">
                     <Link to="/contact"
