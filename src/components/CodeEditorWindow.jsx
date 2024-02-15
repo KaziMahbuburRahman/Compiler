@@ -4,7 +4,7 @@ import "ace-builds/src-noconflict/mode-javascript";
 import "ace-builds/src-noconflict/ext-language_tools";
 import { toast } from "react-toastify";
 import DownloadCode from "./DownloadCode";
-import Copy from "../assets/svg/Copy";
+import Copy from "../icons/Copy";
 
 // acethemes
 import "ace-builds/src-noconflict/theme-monokai";
@@ -17,7 +17,7 @@ import "ace-builds/src-noconflict/theme-textmate";
 import "ace-builds/src-noconflict/theme-solarized_dark";
 import "ace-builds/src-noconflict/theme-solarized_light";
 import "ace-builds/src-noconflict/theme-terminal";
-import Print from "../assets/svg/Print";
+import Print from "../icons/Print";
 
 
 const CodeEditorWindow = ({ onChange, language, extension, code, themeValue, fontSize }) => {

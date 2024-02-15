@@ -1,4 +1,3 @@
-import download from "../assets/images/download.png";
 import { filesaver } from "../utils/filesaver"
 
 

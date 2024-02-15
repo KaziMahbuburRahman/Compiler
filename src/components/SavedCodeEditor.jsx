@@ -15,10 +15,11 @@ import OutputWindow from "./OutputWindow";
 import CustomInput from "./CustomInput";
 import { NavbarComponent } from "./NavbarComponent";
 import Footer from "./Footer";
-import Copy from "../assets/svg/Copy";
+// import Copy from "../assets/svg/Copy";
 import ThemeChanger from "../shared/ThemeChanger/ThemeChanger";
-import Print from "../assets/svg/Print";
-
+// import Print from "../assets/svg/Print";
+import Print from '../icons/Print';
+import Copy from '../icons/Copy';
 
 const SavedCodeEditor = ({ editingIndex, setEditedCode, setEditingIndex, setSavedCodes, savedCodes, setChildAction, childAction, onChange, language, theme, fontSize }) => {
 
