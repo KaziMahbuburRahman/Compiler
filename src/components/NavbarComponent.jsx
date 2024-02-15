@@ -30,7 +30,7 @@
 //         </NavLink>
 //       </li>
 
-      
+
 //       <li className='py-2 lg:py-0 lg:mr-6'>
 //         <NavLink to="/saved-codes" className={({ isActive }) =>
 //           isActive ? "text-white btn btn-primary" : "btn glass text-black"
@@ -127,7 +127,7 @@ export const NavbarComponent = () => {
 
   return (
     <>
-      <header className="mb-5 border-b-1 relative z-20 w-full border-b border-slate-200 bg-white shadow-lg shadow-slate-700/5 after:absolute after:top-full after:left-0 after:z-10 after:block after:h-px after:w-full after:bg-slate-200 lg:border-slate-200 lg:backdrop-blur-sm lg:after:hidden">
+      <header className="pb-1 border-b-1 relative z-20 w-full border-b border-slate-200 bg-white shadow-lg shadow-slate-700/5 after:absolute after:top-full after:left-0 after:z-10 after:block after:h-px after:w-full after:bg-slate-200 lg:border-slate-200 lg:backdrop-blur-sm lg:after:hidden">
         <div className="relative mx-auto max-w-full px-6">
           <nav
             aria-label="main navigation"
@@ -170,10 +170,10 @@ export const NavbarComponent = () => {
               {/*      <!-- Brand logo --> */}
               <div>
                 <button>
-                  <Link to="/gitdown/" onClick={handleScrollToTop} className={
-                    currentPath === '/gitdown/' ? "btn btn-ghost normal-case text-lg flex justify-center items-center gap-2 outline-none bg-transparent border-none lg:hover:bg-gray-100/100 p-2 lg:rounded-md"
+                  <Link to="/" onClick={handleScrollToTop} className={
+                    currentPath === '/' ? "btn btn-ghost normal-case text-lg flex justify-center items-center gap-2 outline-none bg-transparent border-none lg:hover:bg-gray-100/100 p-2 lg:rounded-md"
                       :
-                      "btn btn-ghost normal-case text-lg flex justify-center items-center gap-2 outline-none bg-transparent border-none transition duration-300 active:scale-90 lg:hover:bg-gray-100/100 p-2 lg:rounded-md"}>TechHelpBD <strong className="text-blue-500">|</strong> GitDown</Link>
+                      "btn btn-ghost normal-case text-lg flex justify-center items-center gap-2 outline-none bg-transparent border-none transition duration-300 active:scale-90 lg:hover:bg-gray-100/100 p-2 lg:rounded-md"}>TechHelpBD <strong className="text-blue-500">|</strong> Compiler</Link>
                 </button>
               </div>
               {/*      <!-- Navigation links --> */}
@@ -187,9 +187,9 @@ export const NavbarComponent = () => {
                     }`}
                 >
                   <li role="none" className="flex items-stretch">
-                    <Link onClick={handleScrollToTop} to="/gitdown/"
+                    <Link onClick={handleScrollToTop} to="/"
                       className={
-                        currentPath === '/gitdown/' ? "text-sky-500 lg:text-white lg:bg-sky-500 flex items-center gap-2 py-4 lg:px-3 lg:py-1 transition-colors duration-300 focus:outline-none focus-visible:outline-none  lg:rounded-lg lg:mx-5 my-1"
+                        currentPath === '/' ? "text-sky-500 lg:text-white lg:bg-sky-500 flex items-center gap-2 py-4 lg:px-3 lg:py-1 transition-colors duration-300 focus:outline-none focus-visible:outline-none  lg:rounded-lg lg:mx-5 my-1"
 
                           :
 
@@ -220,11 +220,11 @@ export const NavbarComponent = () => {
                     </a>
                   </li>
                   <li role="none" className="flex items-stretch">
-                    <Link to="/gitdown/contact"
+                    <Link to="/contact"
                       role="menuitem"
                       aria-haspopup="false"
                       className={
-                        currentPath === '/gitdown/contact' || currentPath === '/gitdown/contact/' ? "text-sky-500 lg:text-white lg:bg-sky-500 flex items-center gap-2 py-4 transition-colors duration-300 focus:outline-none focus-visible:outline-none lg:py-2 lg:px-3   lg:rounded-md lg:mx-5 my-1"
+                        currentPath === '/contact' || currentPath === '/contact/' ? "text-sky-500 lg:text-white lg:bg-sky-500 flex items-center gap-2 py-4 transition-colors duration-300 focus:outline-none focus-visible:outline-none lg:py-2 lg:px-3   lg:rounded-md lg:mx-5 my-1"
 
                           :
 
