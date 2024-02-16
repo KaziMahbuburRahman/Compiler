@@ -4,7 +4,6 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Root from './Layouts/Root.jsx';
 import NotFound from './components/NotFound/NotFound.jsx';
 import SavedCodes from './components/SavedCodes.jsx';
 import Contact from './components/Contact/Contact.jsx';
@@ -13,29 +12,51 @@ import { useEffect, useState } from 'react';
 import "./App.css";
 import Landing from "./components/Landing";
 import Preloader from './components/Preloader.jsx';
+import { NavbarComponent } from './components/NavbarComponent.jsx';
+import Footer from './components/Footer.jsx';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root />,
+    element: <>
+    <NavbarComponent />
+    <Landing />
+    <Footer />
+    </>,
   },
 
   {
     path: "*",
-    element: <NotFound />
+    element: <>
+    <NavbarComponent />
+    <NotFound />
+    <Footer />
+    </>
   },
   {
     path: "/saved-codes",
-    element: <SavedCodes />
+    element: <>
+    <NavbarComponent />
+    <SavedCodes />  
+    <Footer />
+    </>
   },
   {
     path: "/saved-codes/:index",
-    element: <SavedCodeEditor />
+    element: <>
+    <NavbarComponent />
+    <SavedCodeEditor />
+    <Footer />
+    </>
   },
   {
     path: "/contact",
-    element: <Contact />
+    element: <>
+            <NavbarComponent />
+            <Contact />
+            <Footer />
+            </>
   }
 ]);
 
