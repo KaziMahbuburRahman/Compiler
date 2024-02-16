@@ -1,11 +1,9 @@
 import { useRef, useState } from 'react'
 import './Contact.css'
 import emailjs from '@emailjs/browser';
-
+import { ToastContainer, toast } from 'react-toastify';
 
 const Contact = () => {
-    const [successMessage, setSuccessMessage] = useState(false);
-
 
     const form = useRef(null);
     const sendEmail = (e) => {
@@ -17,25 +15,24 @@ const Contact = () => {
         //     // console.log(error.text);
         // });
 
-        // toast.success("Thanks for your Feedback!", {
-        //     position: "top-right",
-        //     autoClose: 2000,
-        //     hideProgressBar: true,
-        //     closeOnClick: true,
-        //     pauseOnHover: true,
-        //     draggable: true,
-        //     progress: undefined,
-        // });
+        toast.success("Thanks for your Feedback!", {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
 
         form.current.reset();
-        setSuccessMessage(true);
     };
 
     return (
         <>
 
 
-            {/* 
+            
             <ToastContainer
                 position="top-right"
                 autoClose={2000}
@@ -46,10 +43,10 @@ const Contact = () => {
                 pauseOnFocusLoss
                 draggable
                 pauseOnHover
-            /> */}
+            />
 
-            <div className="bg-no-repeat  mx-5 bg-cover contact-container bg-black bg-blend-darken">
-                <div className="h-[100vh] rounded-md bg-img-overlay pt-12 pb-20">
+            <div className="bg-no-repeat min-h-screen mx-5 bg-cover contact-container bg-black bg-blend-darken">
+                <div className="min-h-[100vh] rounded-md bg-img-overlay pt-12 pb-20">
                     <div className="text-center text-white py-12 space-y-2 ">
                         <h2 className='text-3xl lg:text-4xl font-bold font-mono '>Contact Our Team</h2>
                         <h3 className=''>Have any questions ? <br className='lg:hidden' />
@@ -107,42 +104,6 @@ const Contact = () => {
 
                         </form>
 
-                        {/* Message Sent confirmation */}
-                        {
-                            successMessage && <div
-                                className="flex max-w-[657px] bg-base-100 items-start gap-4 rounded border border-emerald-100 bg-emerald-50 px-2 py-3 text-sm text-emerald-500"
-                                role="alert"
-                            >
-                                {/*  <!-- Icon --> */}
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="h-5 w-5 shrink-0"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                    strokeWidth="1.5"
-                                    role="graphics-symbol"
-                                    aria-labelledby="title-06 desc-06"
-                                >
-                                    <title id="title-06">Icon title</title>
-                                    <desc id="desc-06">A more detailed description of the icon</desc>
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                                    />
-                                </svg>
-                                {/*  <!-- Text --> */}
-                                <div>
-                                    <h3 className="mb-2 font-semibold">
-                                        Message Sent Successfully!
-                                    </h3>
-                                    <p>
-                                        Thanks for your feedback{" "}
-                                    </p>
-                                </div>
-                            </div>
-                        }
                     </div>
 
                 </div>
