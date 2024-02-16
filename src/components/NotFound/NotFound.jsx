@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import not_found from "../../assets/images/404.png";
-import { NavbarComponent } from "../NavbarComponent";
 const NotFound = () => {
 
-  const [daisyTheme, setDaisyTheme] = useState('');
+
   const navigate = useNavigate();
   return (
     <>
-      <NavbarComponent />
       <div className="flex flex-col justify-center items-center h-screen bg-transparent">
 
         <img src={not_found} alt="" />

@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 // import ThemeChanger from "../shared/ThemeChanger/ThemeChanger";
 import Footer from "./Footer";
-import { NavbarComponent } from "./NavbarComponent";
 import { Pagination } from "rc-paginate";
 
 const SavedCodes = () => {
@@ -47,7 +46,6 @@ const SavedCodes = () => {
 
     return (
         <div>
-            <NavbarComponent />
             <ToastContainer
                 position="top-right"
                 autoClose={2000}
@@ -188,7 +186,6 @@ const SavedCodes = () => {
                 </div>
                 ) : null}
             </div>
-            <Footer />
         </div>
     );
 };

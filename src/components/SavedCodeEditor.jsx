@@ -14,7 +14,6 @@ import { classnames } from "../utils/general";
 import OutputDetails from "./OutputDetails";
 import OutputWindow from "./OutputWindow";
 import CustomInput from "./CustomInput";
-import { NavbarComponent } from "./NavbarComponent";
 import Footer from "./Footer";
 // import Copy from "../assets/svg/Copy";
 // import ThemeChanger from "../shared/ThemeChanger/ThemeChanger";
@@ -126,7 +125,7 @@ const SavedCodeEditor = ({ editingIndex, setSavedCodes, savedCodes, setChildActi
     console.log(codes)
     return (
         <>
-            <NavbarComponent />
+
             <ToastContainer
                 position="top-right"
                 autoClose={2000}
@@ -139,14 +138,14 @@ const SavedCodeEditor = ({ editingIndex, setSavedCodes, savedCodes, setChildActi
                 pauseOnHover
             />
 
-            <div className="h-4 w-full bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500"></div>
+            {/* <div className="h-4 w-full bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500"></div> */}
             {/* <div style={{ height: '20px', width: '100%', background: 'linear-gradient(145deg, rgb(119, 46, 195), rgb(58, 18, 153))', }} id="starfall"> */}
             {/* <div style={{ height: '20px'}} className=" w-full bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500" id="starfall">
 
             </div> */}
 
 
-            <div className="flex justify-center items-center flex-col bg-[#171212]">
+            <div className="rounded-md mx-2 flex justify-center items-center flex-col bg-[#171212]">
                 <div className="overlay rounded-md overflow-hidden w-[75%] h-full shadow-4xl">
                     <div className="flex items-center justify-between px-4 py-2 bg-black border-b border-gray-600">
                         <h1 className="text-xl font-bold text-white">Code Editor</h1>
@@ -220,11 +219,6 @@ const SavedCodeEditor = ({ editingIndex, setSavedCodes, savedCodes, setChildActi
 
             </div>
 
-
-            {/* save button */}
-
-
-            <Footer />
         </>
     );
 };
