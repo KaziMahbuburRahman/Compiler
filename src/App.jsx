@@ -70,7 +70,6 @@ function App() {
     setTimeout(() => {
       setLoading(false);
     }, 1000);
-    console.log('rendering');
   }, []);
 
   useEffect(() => {
