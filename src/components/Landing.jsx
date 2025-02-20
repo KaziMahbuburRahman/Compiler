@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import CodeEditorWindow from "./CodeEditorWindow";
 import axios from "axios";
@@ -7,17 +7,13 @@ import { languageOptions } from "../constants/languageOptions";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
-import { defineTheme } from "../lib/defineTheme";
 import useKeyPress from "../hooks/useKeyPress";
-import Footer from "./Footer";
+
 import OutputWindow from "./OutputWindow";
 import CustomInput from "./CustomInput";
 import OutputDetails from "./OutputDetails";
 import ThemeDropdown from "./ThemeDropdown";
-import LanguagesDropdown from "./LanguagesDropdown";
-import { NavbarComponent } from "./NavbarComponent";
-import FontSizeDropdown from "./FontSizeDropdown";
+import LanguagesDropdown from "./LanguagesDropdown";import FontSizeDropdown from "./FontSizeDropdown";
 
 
 
@@ -259,7 +255,7 @@ const Landing = () => {
           </div>
 
         </div>
-
+        
         <div className="flex flex-col lg:flex-row lg:space-x-4 items-start px-4 py-4">
           <div className="flex flex-col w-full h-full justify-start items-end">
             <CodeEditorWindow
