@@ -32,7 +32,7 @@ const Contact = () => {
         <>
 
 
-            
+
             <ToastContainer
                 position="top-right"
                 autoClose={2000}
@@ -46,7 +46,7 @@ const Contact = () => {
             />
 
             <div className="bg-no-repeat min-h-screen mx-5 bg-cover contact-container bg-black bg-blend-darken">
-                <div className="min-h-[100vh] rounded-md bg-img-overlay pt-12 pb-20">
+                <div className="max-h-screen rounded-md bg-img-overlay pt-12 pb-20">
                     <div className="text-center text-white py-12 space-y-2 ">
                         <h2 className='text-3xl lg:text-4xl font-bold font-mono '>Contact Our Team</h2>
                         <h3 className=''>Have any questions ? <br className='lg:hidden' />
